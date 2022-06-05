@@ -1,3 +1,4 @@
+import Navigation from './components/Navigation';
 import Appointments from './components/Appointments';
 import Doctors from './components/Doctors';
 import Patients from './components/Patients';
@@ -7,6 +8,8 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+
+      < Navigation />
 
         <Routes>
           <Route path="/" element = {<Appointments/>}/>

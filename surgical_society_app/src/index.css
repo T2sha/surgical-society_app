@@ -11,3 +11,89 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* NAVIGATION __________________________________________________________________*/
+
+a,ul,li{
+list-style: none;
+text-decoration: none;
+}
+
+
+/* Grey side of navigation bar*/
+.side{
+  background: #5A6C73;
+  position: absolute;
+  height: 100vh;
+  width: 15px;
+}
+
+/* Websites logo */
+.logo{
+  position: absolute;
+  width: 47.34px;
+  height: 96.08px;
+  left: 64.84px;
+  top: 56.47px;
+}
+
+/* Title "SURGICAL SOCIETY */
+
+/* Font style*/
+@import url('https://fonts.googleapis.com/css2?family=Vollkorn+SC:wght@400;600;700;900&display=swap');
+
+h1{
+  position: absolute;
+width: 79px;
+height: 42px;
+left: 60px;
+top: 172px;
+
+font-family: 'Vollkorn SC', serif;
+font-style: normal;
+font-weight: 400;
+font-size: 15.35px;
+line-height: 21px;
+text-align: center;
+text-transform: uppercase;
+
+color: #AAB0AB;
+
+}
+
+/* Icons*/
+
+.Icon1{
+list-style: none;
+text-decoration: none;
+position: absolute;
+width: 22.25px;
+height: 25.92px;
+left: 85px;
+top: 328.04px;
+color: #5A6C73;
+  
+}
+
+.Icon2{
+position: absolute;
+text-decoration: none;
+position: absolute;
+width: 19.95px;
+height: 31.97px;
+left: 86.2px;
+top: 440.89px;
+color: #5A6C73;
+}
+
+.Icon3{
+position: absolute;
+text-decoration: none;
+position: absolute;
+width: 33.58px;
+height: 41.38px;
+left: 79.39px;
+top: 556.33px;
+color: #5A6C73;
+}
+
