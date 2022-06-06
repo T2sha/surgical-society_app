@@ -97,3 +97,45 @@ top: 556.33px;
 color: #5A6C73;
 }
 
+/* APPOINTMENTS __________________________________________________________________*/
+
+/* appointments container*/
+
+.app-container{
+position: absolute;
+width: 963px;
+height: 100vh;
+left: 190px;
+top: 0px;
+background: #F2F2F2;
+}
+
+/* Image next to "appointments*/ 
+
+.drip{
+  position: absolute;
+  width: 62.68px;
+  height: 62.68px;
+  left: 61px;
+  top: 30px;
+
+}
+
+/* Appointments Text*/
+
+h2{
+position: absolute;
+width: 185px;
+height: 20px;
+left: 117px;
+top: 53.67px;
+font-family: 'Vollkorn SC', serif;
+font-style: normal;
+font-weight: 400;
+font-size: 24.3042px;
+line-height: 19px;
+/* identical to box height, or 79% */
+text-align: center;
+text-transform: uppercase;
+color: #818181;
+}
