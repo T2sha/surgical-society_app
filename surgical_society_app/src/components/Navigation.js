@@ -1,5 +1,5 @@
 import React from 'react';
-import {  UilHospital,  UilUser, UilUserMd } from '@iconscout/react-unicons'
+import {  UilHospital,  UilUser, UilUserMd} from '@iconscout/react-unicons'
 import logo from '../Icons/logo.svg'
 
 const Navigation = () => {
@@ -13,10 +13,13 @@ const Navigation = () => {
             <ul>
                 <li><a href="/" className= "Icon1"> <UilHospital/> </a></li>
                 <li><a href="/Patients" className= "Icon2"><UilUser/></a></li>
-                <li><a href="/Doctors" className= "Icon3"><UilUserMd/></a></li>
+                <li><a href="/Doctors" className= "Icon3"><UilUserMd/></a></li> 
             </ul>
             </div>
         </div>
+
+        
+
         </>
     )
 }

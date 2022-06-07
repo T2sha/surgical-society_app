@@ -110,7 +110,7 @@ top: 0px;
 background: #F2F2F2;
 }
 
-/* Image next to "appointments*/ 
+/* Image next to "appointments" text*/ 
 
 .drip{
   position: absolute;
@@ -151,7 +151,7 @@ background: #F9F9F9;
 border-radius: 14.0708px;
 }
 
-/* Hi, Jennifer */
+/* Hi, Jennifer text*/
   /* Font style*/
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 h3{
@@ -171,7 +171,7 @@ text-align: center;
 color: #F98770;
 
 }
-/* “May your day be blessed !” */
+/* “May your day be blessed !” text*/
 
 p{
 position: absolute;
@@ -224,7 +224,87 @@ background: #FFFFFF;
 border-radius: 35.1771px;
 }
 
-/* List of appointments */
+
+/* Search input*/
+.search-input{
+position: absolute;
+width: 286.53px;
+height: 39.65px;
+left: 620px;
+top: 35px;
+background: #F7F7F7;
+box-shadow: 0px 2.55833px 2.55833px rgba(0, 0, 0, 0.1);
+border-radius: 10.2333px;
+border-style: none;
+}
+
+.search-button{
+position: absolute;
+width: 34.54px;
+height: 30.06px;
+left: 870px;
+top: 40.12px;
+background: #5A6C73;
+border-radius: 5.11667px;
+border-style: none;
+}
+
+.search-icon{
+position: absolute;
+left: 875px;
+right: 23%;
+top: 5.7%;
+bottom: 91.65%;
+color: white;
+
+}
+
+/* List of appointments text*/
+.list {
+width: 149px;
+height: 20px;
+left: 510px;
+top: 110.47px;
+}
+
+/* List of appointments container */
+.app-list{
+position: absolute;
+width: 420.21px;
+height: 178.44px;
+left: 510px;
+top: 165px;
+background: #FFFFFF;
+border-radius: 25.5833px;
+}
+
+/* Create new appointments text */
+.new{
+width: 188px;
+left: 510px;
+top: 340px;
+}
+
+/* Create new appointments ccontainer */
+.new-appointments{
+position: absolute;
+width: 423px;
+height: 298px;
+left: 510px;
+top: 386px;
+background: #FFFFFF;
+border-radius: 25.5833px;
+}
+
+
+
+
+
+
+
+
+
+
 
 
 
