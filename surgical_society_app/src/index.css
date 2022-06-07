@@ -139,3 +139,96 @@ text-align: center;
 text-transform: uppercase;
 color: #818181;
 }
+
+/* welcome-container */
+.welcome{
+position: absolute;
+width: 392.06px;
+height: 100.41px;
+left: 50px;
+top: 120px;
+background: #F9F9F9;
+border-radius: 14.0708px;
+}
+
+/* Hi, Jennifer */
+  /* Font style*/
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+h3{
+  /* Font style*/
+  
+position: absolute;
+width: 194px;
+height: 20px;
+left: 20px;
+top: -10px;
+font-family: 'Inter', sans-serif;
+font-style: normal;
+font-weight: 600;
+font-size: 35.1771px;
+line-height: 19px;
+text-align: center;
+color: #F98770;
+
+}
+/* “May your day be blessed !” */
+
+p{
+position: absolute;
+width: 168px;
+height: 20px;
+left: 40px;
+top: 50px;
+font-family: 'Inter', sans-serif;
+font-style: normal;
+font-weight: 300;
+font-size: 12.7917px;
+line-height: 19px;
+text-align: center;
+color: #F98770;
+}
+
+/* Doctors Image */
+
+.doctor{
+position: absolute;
+width: 194.43px;
+height: 194.43px;
+left: 230px;
+top: -70px;
+}
+
+ /* Calendar */
+h4{
+position: absolute;
+width: 66px;
+height: 20px;
+left: 50px;
+top: 225.84px;
+font-family: 'Inter', sans-serif;
+font-style: normal;
+font-weight: 400;
+font-size: 15.35px;
+line-height: 19px;
+text-align: center;
+color: #000000;
+}
+
+.calendar{
+position: absolute;
+width: 384.39px;
+height: 404.22px;
+left: 50px;
+top: 280.93px;
+background: #FFFFFF;
+border-radius: 35.1771px;
+}
+
+/* List of appointments */
+
+
+
+
+
+
+
