@@ -1,6 +1,11 @@
 const Patients = () =>{
     return (
         <>
+        <div className="app-container">
+            
+        </div>
+
+    
         
         </>
     )

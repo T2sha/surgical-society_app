@@ -7,13 +7,13 @@ const Navigation = () => {
     return(
         <>
         <div className="navBar">
-            <div className="side">
             <img className="logo" src ={logo}></img>
             <h1>SURGICAL SOCIETY</h1>
+            <div className="side">
             <ul>
-                <li><a href="/" className= "Icon1"> <UilHospital/> </a></li>
-                <li><a href="/Patients" className= "Icon2"><UilUser/></a></li>
-                <li><a href="/Doctors" className= "Icon3"><UilUserMd/></a></li> 
+                <li className="active"><a href="/" className= "Icon1"> <UilHospital/> </a></li>
+                <li className="active"><a href="/Patients" className= "Icon2"><UilUser/></a></li>
+                <li className="active"><a href="/Doctors" className= "Icon3"><UilUserMd/></a></li> 
             </ul>
             </div>
         </div>

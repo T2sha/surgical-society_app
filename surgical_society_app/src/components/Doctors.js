@@ -1,6 +1,9 @@
 const Doctors = ()=>{
     return(
         <>
+        <div className="app-container">
+            
+        </div>
 
         
         </>

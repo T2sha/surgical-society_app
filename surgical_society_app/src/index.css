@@ -14,7 +14,7 @@ code {
 
 /* NAVIGATION __________________________________________________________________*/
 
-a,ul,li{
+ a,ul,li{
 list-style: none;
 text-decoration: none;
 }
@@ -43,7 +43,7 @@ text-decoration: none;
 @import url('https://fonts.googleapis.com/css2?family=Vollkorn+SC:wght@400;600;700;900&display=swap');
 
 h1{
-  position: absolute;
+position: absolute;
 width: 79px;
 height: 42px;
 left: 60px;
