@@ -25,15 +25,13 @@ const events = [
         <FullCalendar
           plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
           initialView="dayGridMonth"
+
+          
           headerToolbar={{ 
-            center: 'dayGridMonth,timeGridWeek,timeGridDay new',
+          center: 'dayGridMonth,timeGridWeek,timeGridDay',
           }}
-          customButtons={{
-            new: {
-              text: 'new',
-              click: () => console.log('new event'),
-            },
-          }}
+
+
           events={events}
           eventColor="red"
           nowIndicator

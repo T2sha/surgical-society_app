@@ -14,6 +14,7 @@ const Navigation = () => {
                 <li className="active"><a href="/" className= "Icon1"> <UilHospital/> </a></li>
                 <li className="active"><a href="/Patients" className= "Icon2"><UilUser/></a></li>
                 <li className="active"><a href="/Doctors" className= "Icon3"><UilUserMd/></a></li> 
+                <li className="active"><a href="/Login" className= "Login"><button className="log-button"><p>Logout</p></button></a></li> 
             </ul>
             </div>
         </div>
