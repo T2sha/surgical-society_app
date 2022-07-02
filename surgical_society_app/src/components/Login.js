@@ -1,8 +1,17 @@
 import React from 'react';
 import login from '../Images/background.svg';
 
+/* const navigate= useNavigate();
 
+    const[iputs , setInputs] = useState({
+        email: '',
+        password: ''
+    });*/
 const Login = ()=>{
+
+    
+   
+    
 
 
     return(

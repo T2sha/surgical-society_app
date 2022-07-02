@@ -2,8 +2,9 @@ import Navigation from './components/Navigation';
 import Appointments from './components/Appointments';
 import Doctors from './components/Doctors';
 import Patients from './components/Patients';
-import Login from './components/Login';
 import {Routes,Route} from 'react-router-dom'
+import Login from './components/Login';
+import Register from './components/Register'
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/Patients" element = {<Patients/>}/>
           <Route path="/Doctors" element = {<Doctors/>}/>
           <Route path="/Login" element = {<Login/>}/>
+          <Route path='/Register' element = {<Register/>}/>
         </Routes>
        
       </header>
