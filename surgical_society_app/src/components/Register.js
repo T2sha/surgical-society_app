@@ -4,17 +4,9 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-
-/* Styling */
-import Logo from '../Images/logo.svg';
-
-/*<div classname='left-register'>
-<img className='logo-register' src={Logo}/>
- <h1 className='heading'>Surgical Society</h1>
- <h2 className= 'slogan'>Building a Healthy Community One Individual at a Time.</h2>
- <img className= 'auth-img' src={Logo}/>
-
-</div>*/
+/* Images*/
+import register from '../Images/Register.svg'
+import logo from '../Icons/register-logo.svg'
 
 const Register =() => {
 
@@ -41,27 +33,37 @@ const Register =() => {
     
     return (
         <div className='register-page'>
+             <img className ="register-img" src = {register}></img>
+             <img className ="register-logo" src = {logo}></img>
 
-            <title>Register</title>
-
-           
-
-            <div className= 'left-register'>
+            <div className= 'register-form'>
                 <form>
                     <h1>Good day!</h1>
                     <h2>Register now!</h2>
 
+                    <p className="profile-text">Select your profile picture</p>
+
                     <div className= 'profile'>
-                        <p>Select your profile picture</p>
-                        <input name= "names" type="text" placeholder='Name and Surname' onChange={handleChange}/>
-                        <input name= "email" type="email" placeholder=' Your Email' onChange={handleChange}/>
-                        <input name= "contact" type="text" placeholder='Contact'onChange={handleChange} />
-                        <input name= "username" type="text" placeholder='Username' onChange={handleChange}/>
-                        <input name= "password" type="text" placeholder='password'onChange={handleChange} />
+
+                        </div>
+
+                        <input name= 'name'type="text" placeholder='Name' onChange={handleChange}/>
+                        <input name= 'surname'type="text" placeholder='Surname' onChange={handleChange}/>
+                        <input name= 'age' type="text" placeholder='Age' onChange={handleChange}/>
+                    
+                        <select name="gender" defualtValue="none">
+                            <option value="none">Gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+             
+                        <input name= 'phone' type="text" placeholder='Phone number' onChange={handleChange}/>
+                        <input name= "email" type="text" placeholder='Email' onChange={handleChange}/>
+                        <input name= "password" type="text" placeholder='Password'onChange={handleChange} />
                         <input name= "password" type="text" placeholder='Confirm Password' />
+
                         <button type='submit'onClick={handleSubmit}>Register User</button>
-                       
-                    </div>
                 </form>
             </div>
         </div>

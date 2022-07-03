@@ -436,6 +436,106 @@ border-radius: 37px;
 border-style: none;
 }
 
+/* REGISTER__________________________________________________________________*/
+
+
+/* Background-Image */
+.register-img{
+  height:100%;
+  width: 100%;
+  background-color: #F2F2F2;
+}
+
+
+/* Logo-image*/
+.register-logo{
+position: absolute;
+color: #5A6C73;
+width: 61px;
+height: 104px;
+left: 198px;
+top: 77px;
+}
+
+/* Form */
+/* Profile-image*/
+.profile{
+ height: 150px;
+ width: 150px;
+ border-radius: 80px;
+ background: #F2F2F2;
+ box-shadow: 4px 4px 40px rgba(0, 0, 0, 0.1);
+ margin-left: 205px;
+ margin-top: -160px;
+ margin-bottom: 30px;
+}
+
+/* profile picture text */
+.profile-text{
+  margin-top: 200px;
+  margin-left: 177px;
+  color: grey;
+}
+.register-form{
+  position: absolute;
+  width: 625px;
+  height: 670px;
+  left: 690px;
+  top: 29px;
+  background: #F2F2F2;
+  box-shadow: 4px 4px 40px rgba(0, 0, 0, 0.1);
+  border-radius: 31px;
+  }
+
+.register-form form{
+  margin-top: 250px;
+  margin-left: 30px;
+}
+.register-form input, .left-register select{
+  width: 35%;
+  padding: 15px;
+  margin: 10px 25px;
+  background-color: #F2F2F2;
+  border-radius: 12px;
+  margin-right: 4px;
+  box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.1);
+  outline: none;
+  border:none;
+
+}
+.register-form select{
+  margin-left: 26px;
+  padding: 15px;
+  color:grey;
+  width: 40%;
+  height: 45px;
+  border-radius: 12px;
+  border-style: none;
+  background-color: #F2F2F2;
+  box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.1);
+}
+
+.register-form option{
+  border-radius: 12px;
+  border-style: none;
+}
+
+
+.register-form button{
+  margin-top: 20px;
+  margin-left: 12px;
+  width: 85%;
+  border-radius: 10px;
+  height: 50px;
+  outline: none;
+  border:none;
+  background-color:#C1BABA;
+}
+
+
+
+
+
 
 
 
