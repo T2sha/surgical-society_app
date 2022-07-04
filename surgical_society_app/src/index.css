@@ -12,7 +12,7 @@ code {
     monospace;
 }
 
-/* NAVIGATION __________________________________________________________________*/
+/* NAVIGATION PAGE__________________________________________________________________*/
 
  a,ul,li{
 list-style: none;
@@ -97,7 +97,7 @@ top: 556.33px;
 color: #5A6C73;
 }
 
-/* APPOINTMENTS __________________________________________________________________*/
+/* APPOINTMENTS PAGE__________________________________________________________________*/
 
 /* appointments container*/
 
@@ -436,7 +436,7 @@ border-radius: 37px;
 border-style: none;
 }
 
-/* REGISTER__________________________________________________________________*/
+/* REGISTRATION PAGE__________________________________________________________________*/
 
 
 /* Background-Image */
@@ -457,6 +457,24 @@ left: 198px;
 top: 77px;
 }
 
+/* Side text*/
+.Side-text{
+  left: 237px;
+  top: 115px;
+  font-size: medium;
+  color: grey;;
+}
+
+/* slogan*/
+.slogan{
+  width: 350px;
+  top: 280px;
+  left: 160px;
+  font-size: medium;
+  font-weight: 300;
+  color: rgb(187, 184, 184);
+}
+
 /* Form */
 /* Profile-image*/
 .profile{
@@ -472,25 +490,53 @@ top: 77px;
 
 /* profile picture text */
 .profile-text{
-  margin-top: 200px;
-  margin-left: 177px;
-  color: grey;
+  margin-top: 248px;
+  margin-left: 182px;
+  color: black;
 }
+
+/* Registration text */
+.R-text{
+  margin-left: 98px;
+  margin-top:-30px;
+  color: #5A6C73;
+  
+}
+
 .register-form{
   position: absolute;
   width: 625px;
-  height: 670px;
+  height: 680px;
   left: 690px;
   top: 29px;
   background: #F2F2F2;
-  box-shadow: 4px 4px 40px rgba(0, 0, 0, 0.1);
+  box-shadow: 4px 4px 40px rgba(0, 0, 0, 0.4);
   border-radius: 31px;
   }
 
 .register-form form{
-  margin-top: 250px;
+  margin-top: 300px;
   margin-left: 30px;
 }
+
+/* Text:Already have an account?*/
+.Rsub-text{
+  margin-top: 23px;
+  margin-left: 185px;
+  color: grey;
+}
+
+.login-link{
+  position: absolute;
+  color:white;
+  margin-top: 42px;
+  margin-left: 185px;
+  font-size: medium;
+  font-weight: 600;
+  text-shadow: grey 1px 1px 5px;
+  
+}
+
 .register-form input, .left-register select{
   width: 35%;
   padding: 15px;
@@ -522,14 +568,33 @@ top: 77px;
 
 
 .register-form button{
-  margin-top: 20px;
-  margin-left: 12px;
+  margin-top: 15px;
+  margin-left: 25px;
   width: 85%;
   border-radius: 10px;
   height: 50px;
   outline: none;
   border:none;
   background-color:#C1BABA;
+}
+
+/* LOGIN PAGE__________________________________________________________________*/
+
+.lo-text{
+  margin-left: 97px;
+  margin-top: 140px;
+  font-size: xx-large;
+}
+
+.log-input{
+  width: 95%;
+  height: 35px;
+  border: 0;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  outline: none;
+  background-color: #f7f7f7;
+  padding-left: 5%;
 }
 
 

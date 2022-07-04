@@ -1,25 +1,75 @@
-import React from 'react';
-import login from '../Images/background.svg';
-
-/* const navigate= useNavigate();
-
-    const[iputs , setInputs] = useState({
-        email: '',
-        password: ''
-    });*/
-const Login = ()=>{
-
-    
-   
-    
+import React from 'react'
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 
+/* Images*/
+import register from '../Images/Register.svg'
+import logo from '../Icons/register-logo.svg'
+
+const Login = () => {
+
+    const navigate = useNavigate();
+  
+    const [inputs, setInputs] = useState({
+      username: '', 
+      password: ''
+  });
+  
+  const usernameVal = (e) => {
+    const value = e.target.value.trim();
+    setInputs({...inputs, username: value});
+    //Add Validation 
+  }
+  
+  const passwordVal = (e) => {
+    const value = e.target.value.trim();
+    setInputs({...inputs, password: value});
+    //Add Validation 
+  }
+  
+    const handleSubmit = (e) => {
+      e.preventDefault();
+  
+      console.log(inputs);
+  
+          axios.post('http://localhost:8888/api/userLogin.php', inputs)
+              .then(function(response){
+               console.log(response);
+  
+               if(response.data === true){
+                  sessionStorage.setItem('activeUser',inputs.username);
+                   navigate("/dashboard");
+               }else{
+                 console.log('Not working')
+               }
+  
+              });
+    }
     return(
         <>
-        <img className="log" src={login} ></img>
-        <input className="email" type="text" placeholder="Email..."></input>
-        <input className="password"type="text" placeholder="Password..."></input>
-        <button className="Login-button">LogIn</button>
+         <img className="register-img" src={register} ></img>
+        
+         <img className ="register-logo" src = {logo}></img>
+             <h2 className= "Side-text">urgical Society</h2>
+             <p className="slogan">Building a healthy community one individual at a time.</p>
+
+         <div className= 'register-form'>
+         <h2 className= "lo-text">LogIn</h2>
+         <form>
+         <p className="Rsub-text">Do not have an account?</p>
+                    <a href='/' ><p className='login-link' >Register</p></a>
+         <input className= "log-input" name= 'email' type="username" placeholder='Email' onChange={usernameVal}/>
+         <input className ="log-input" name= 'password'type="password" placeholder='Password'onChange={passwordVal}/>
+         <button type='submit' onClick={handleSubmit}>Login</button>
+         </form>
+       
+        
+       
+
+       
+        </div>
         </>
 
     )
