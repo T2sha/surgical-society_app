@@ -296,16 +296,16 @@ const Register =() => {
 
                         
                         {nameError}
-                        <input name= 'name'type="text" placeholder='Name' onchange={nameVal}/>
+                        <input name= 'name'type="text" placeholder='Name' onChange={nameVal}/>
 
                         {surnameError}
-                        <input name= 'surname'type="text" placeholder='Surname' onchange={surnameVal}/>
+                        <input name= 'surname'type="text" placeholder='Surname' onChange={surnameVal}/>
 
                         {ageError}
-                        <input name= 'age' type="text" placeholder='Age' onchange={ageVal}/>
+                        <input name= 'age' type="text" placeholder='Age' onChange={ageVal}/>
                         
                         {genderError}
-                        <select name="gender" defualtvalue="none" onchange={genderVal}>
+                        <select name="gender" defualtvalue="none" onChange={genderVal}>
                             <option value="none">Gender</option>
                             <option value="male">Male</option>
                             <option value="female">Female</option>
@@ -313,14 +313,14 @@ const Register =() => {
                         </select>
                         
                         {phoneError}
-                        <input name= 'phone' type="text" placeholder='Phone number' onchange={phoneVal}/>
+                        <input name= 'phone' type="text" placeholder='Phone number' onChange={phoneVal}/>
 
                         {emailError}    
                         {emailAvail}
                         <input name= "email" type="text" placeholder='Email'  onChange={emailVal} onBlur={validateUser}/>
 
                         {passwordError}
-                        <input name= "password" type="text" placeholder='Password' onchange={passwordVal}/>
+                        <input name= "password" type="text" placeholder='Password' onChange={passwordVal}/>
 
                         {passwordConError}
                         <input name= "passwordCon" type="text" placeholder='Confirm Password' onChange={passwordConVal}/>

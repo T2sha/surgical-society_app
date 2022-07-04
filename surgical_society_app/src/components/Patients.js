@@ -5,9 +5,20 @@ const Patients = () =>{
         <>
          <Navigation/> 
 
-        <div className="app-container">
+          <div className=" List-Patients">
+              <div className="Detailed-view">
+
+              </div>
+         </div>
+
+          <div className="Add-New-Patients">
+
+          </div>
+
+
+
             
-        </div>
+       
 
     
         
