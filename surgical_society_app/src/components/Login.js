@@ -13,13 +13,13 @@ const Login = () => {
     const navigate = useNavigate();
   
     const [inputs, setInputs] = useState({
-      username: '', 
+      email: '', 
       password: ''
   });
   
-  const usernameVal = (e) => {
+  const emailVal = (e) => {
     const value = e.target.value.trim();
-    setInputs({...inputs, username: value});
+    setInputs({...inputs, email: value});
     //Add Validation 
   }
   
@@ -34,7 +34,7 @@ const Login = () => {
   
       console.log(inputs);
   
-          axios.post('http://localhost:8888/api/userLogin.php', inputs)
+          axios.post('http://localhost:8888/surgicalApi/userLogin.php', inputs)
               .then(function(response){
                console.log(response);
   
@@ -60,7 +60,7 @@ const Login = () => {
          <form>
          <p className="Rsub-text">Do not have an account?</p>
                     <a href='/' ><p className='login-link' >Register</p></a>
-         <input className= "log-input" name= 'email' type="username" placeholder='Email' onChange={usernameVal}/>
+         <input className= "log-input" name= 'email' type="username" placeholder='Email' onChange={emailVal}/>
          <input className ="log-input" name= 'password'type="password" placeholder='Password'onChange={passwordVal}/>
          <button type='submit' onClick={handleSubmit}>Login</button>
          </form>
