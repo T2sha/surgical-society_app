@@ -19,15 +19,15 @@ const Register =() => {
     let navigate = useNavigate();
 
     const [inputs, setInputs] = useState({
-        name:'',
-        surname:'',
+        first:'',
+        last:'',
         age:'',
         gender:'',
         phone:'',
         email:'',
         password:'',
         passwordCon:'',
-        image:'',
+        image:'No Image',
     });
     
     //UseState for each error message
@@ -53,6 +53,7 @@ const Register =() => {
         const value = e.target.value;
         setInputs({...inputs, first: value});
         if(inputs.first !== ''){setNameError();} 
+        console.log(inputs)
     }
 
     const imageVal = (e) => {           
@@ -114,12 +115,12 @@ const Register =() => {
     }
 
     const phoneVal = (e) => { //e is for events
-
+        console.log(inputs)
         //validation
         const contactRegex = /^(\()?\d{3}(\))?(-|\s)?\d{3}(-|\s)\d{4}$/;
 
         const value = e.target.value;
-        setInputs({...inputs, contact: value});
+        setInputs({...inputs, phone: value});
 
         //if contact input is empty, set error message to nothing
         if(inputs.phone !== ''){setPhoneError();}
@@ -213,8 +214,7 @@ const Register =() => {
     }
 
    
-    const  handleSubmit=(e) =>{
-        e.preventDefualt();
+    const  handleSubmit=() =>{
         if(inputs.name === ''){
             setNameError(<MiniModalLeft message="Everyone has one..." />);
         } else {
@@ -258,21 +258,21 @@ const Register =() => {
         }
 
         let result = Object.values(inputs).some(o => o === '');
-
-        if(result){
-            console.log('Not working');
-        } else {
-            axios.post('http://localhost:8888/api/addUser.php', inputs)
+        console.log(inputs)
+        // if(result){
+        //     console.log('Not working');
+        // } else {
+            axios.post('http://localhost:8888/surgicalApi/addUser.php', inputs)
             .then(function(response){
              console.log(response);
 
              if(response.status === 200){
-                 navigate("/login");
+                navigate("/login");
                  console.log("Working Fine");
              }
 
             });
-        }
+        // }
 
     }
     return (
@@ -284,7 +284,6 @@ const Register =() => {
 
 
             <div className= 'register-form'>
-                <form >
                     <h2 className= "R-text">Register</h2>
                     <p className="Rsub-text">Already have an account?</p>
                     <a href='./Login' ><p className='login-link' >Login</p></a>
@@ -326,7 +325,6 @@ const Register =() => {
                         <input name= "passwordCon" type="text" placeholder='Confirm Password' onChange={passwordConVal}/>
 
                         <button type='submit'onClick={handleSubmit}>Register User</button>
-                </form>
             </div>
         </div>
     )
