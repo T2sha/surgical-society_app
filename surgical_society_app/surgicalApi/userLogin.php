@@ -11,12 +11,11 @@ $data = json_decode($request_body);
 $email = $data->email;
 $password = $data->password;
 
-$encryptedPassword = md5($password);
 
-if($username === "" && $password === ""){
+if($email === "" && $password === ""){
     echo "Err";
 } else {
-    $sql = "SELECT * FROM users WHERE username = '$username' AND password = '$encryptedPassword';";
+    $sql = "SELECT * FROM receptionist WHERE email = '$email' AND password = '$password';";
     $result = mysqli_query($conn, $sql);
     $resultCheck = mysqli_num_rows($result);
 

@@ -1,4 +1,5 @@
 import Navigation from './Navigation';
+import { UilSearch } from '@iconscout/react-unicons'
 
 const Patients = () =>{
     return (
@@ -12,6 +13,9 @@ const Patients = () =>{
          </div>
 
           <div className="Add-New-Patients">
+              <div className="form-patients">
+
+              </div>
 
           </div>
 

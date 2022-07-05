@@ -481,8 +481,8 @@ top: 77px;
  border-radius: 80px;
  background: #F2F2F2;
  box-shadow: 4px 4px 40px rgba(0, 0, 0, 0.1);
- margin-left: 205px;
- margin-top: -160px;
+ margin-left: 230px;
+ margin-top: 140px;
  margin-bottom: 30px;
 }
 
@@ -514,7 +514,7 @@ top: 77px;
 
 .register-form form{
   margin-top: 300px;
-  margin-left: 30px;
+  margin-left: 40px;
 }
 
 /* Text:Already have an account?*/
@@ -538,7 +538,7 @@ top: 77px;
 .register-form input, .left-register select{
   width: 35%;
   padding: 15px;
-  margin: 10px 25px;
+  margin: 10px 35px;
   background-color: #F2F2F2;
   border-radius: 12px;
   margin-right: 4px;
@@ -548,7 +548,7 @@ top: 77px;
 
 }
 .register-form select{
-  margin-left: 26px;
+  margin-left: 34px;
   padding: 15px;
   color:grey;
   width: 40%;
@@ -566,8 +566,8 @@ top: 77px;
 
 
 .register-form button{
-  margin-top: 15px;
-  margin-left: 25px;
+  margin-top: 30px;
+  margin-left: 35px;
   width: 85%;
   border-radius: 10px;
   height: 50px;
@@ -594,6 +594,39 @@ top: 77px;
   background-color: #f7f7f7;
   padding-left: 5%;
 }
+
+/* PATIENTS PAGE__________________________________________________________________*/
+
+.List-Patients{
+  position: relative;
+  width: 560px;
+  height: 100vh;
+  left: 189px;
+  top: 7px;
+  background-color: #F2F2F2;
+}
+
+.Detailed-view{
+  position: absolute;
+  width: 297px;
+  height: 100vh;
+  left: 350px;
+  top: 0px;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.Add-New-Patients{
+  position: absolute;
+  width: 300px;
+  height: 100vh;
+  left: 880px;
+  top: 26px;
+  background: #F2F2F2;
+}
+
+
+
+
 
 
 

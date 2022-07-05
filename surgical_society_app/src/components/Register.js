@@ -200,7 +200,7 @@ const Register =() => {
     }
 
     const validateUser = () => {
-        axios.post('http://localhost:8888/surgicalApi/authenticateUser.php', inputs)
+        axios.post('http://localhost:8888/surgicalApi/authenticateEmail.php', inputs)
         .then(function(response){
          console.log(response);
          if(response.data === "Available"){
@@ -290,7 +290,7 @@ const Register =() => {
                     <div className='imageArea'></div>
                       <p className="profile-text">Select your profile picture</p>
                       
-                    <div id="profileing" className= 'profile'>
+                    <div id="profileing" className= 'profile'onChange={imageVal}>
                     </div>
 
                         
@@ -298,7 +298,7 @@ const Register =() => {
                         <input name= 'name'type="text" placeholder='Name' onChange={nameVal}/>
 
                         {surnameError}
-                        <input name= 'surname'type="text" placeholder='Surname' onChange={surnameVal}/>
+                        <input name= 'surname'type="text" placeholder='Surname'onBlur={validateUser}  onChange={surnameVal}/>
 
                         {ageError}
                         <input name= 'age' type="text" placeholder='Age' onChange={ageVal}/>
@@ -316,13 +316,13 @@ const Register =() => {
 
                         {emailError}    
                         {emailAvail}
-                        <input name= "email" type="text" placeholder='Email'  onChange={emailVal} onBlur={validateUser}/>
+                        <input name= "email" type="text" placeholder='Email'  onChange={emailVal} onBlur={validateEmail}/>
 
                         {passwordError}
-                        <input name= "password" type="text" placeholder='Password' onChange={passwordVal}/>
+                        <input name= "password" type="password" placeholder='Password' onChange={passwordVal}/>
 
                         {passwordConError}
-                        <input name= "passwordCon" type="text" placeholder='Confirm Password' onChange={passwordConVal}/>
+                        <input name= "passwordCon" type="password" placeholder='Confirm Password' onChange={passwordConVal}/>
 
                         <button type='submit'onClick={handleSubmit}>Register User</button>
             </div>

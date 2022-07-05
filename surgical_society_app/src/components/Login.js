@@ -40,7 +40,7 @@ const Login = () => {
   
                if(response.data === true){
                   sessionStorage.setItem('activeUser',inputs.username);
-                   navigate("/dashboard");
+                   navigate("/Appointments");
                }else{
                  console.log('Not working')
                }
