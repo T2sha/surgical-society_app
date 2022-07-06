@@ -215,11 +215,46 @@ color: #000000;
 .calendar{
 position: absolute;
 width: 400px;
-height: 404.22px;
+height: 400px;
 left: 50px;
 top: 280.93px;
-background: #FFFFFF;
 border-radius: 35.1771px;
+}
+
+/* calendar */
+@import url("https://cdn.syncfusion.com/ej2/material.css");
+
+.e-calendar {
+  background-color: #f5f5f5;
+  border: 3px solid white;
+  border-radius: 20px;
+  max-width: 100%;
+  margin-top: 40px;
+  
+ 
+}
+
+.e-calendar .e-content td:hover span.e-day, .e-calendar .e-content td:focus span.e-day, .e-bigger.e-small .e-calendar .e-content td:hover span.e-day, .e-bigger.e-small .e-calendar .e-content td:focus span.e-day {
+  background-color: #5A6C73;
+  border: 2px solid #5A6C73;
+  color: #f5f5f5;
+}
+
+.e-calendar .e-header span, .e-bigger.e-small .e-calendar .e-header span {
+  color: #5A6C73;
+}
+
+.e-calendar .e-btn.e-today.e-flat.e-primary, .e-calendar .e-css.e-btn.e-today.e-flat.e-primary {
+  margin-top:-8px;
+  color: #f5f5f5;
+  background-color: #5A6C73;
+  border-radius: 20px;
+}
+
+.e-calendar .e-content td.e-focused-date.e-today span.e-day {
+  background-color: #f5f5f5;
+  border: 2px solid #5A6C73;
+  color: #2b2b2b;
 }
 
 
@@ -432,6 +467,84 @@ top: 600px;
 background: #F98770;
 border-radius: 37px;
 border-style: none;
+}
+
+.editAppointment{
+  padding: 2%;
+  width: 40%;
+  background-color: #DBEFEE;
+  border-radius: 20px;
+  position: absolute;
+  margin-left: 6%;
+  margin-top: -10vh;
+  box-shadow: 3px 5px 29px -4px rgba(0,0,0,0.75);
+  -webkit-box-shadow: 3px 5px 29px -4px rgba(0,0,0,0.75);
+  -moz-box-shadow: 3px 5px 29px -4px rgba(0,0,0,0.75);
+}
+
+.editAppointment .button{
+  width: 40%;
+}
+
+.editAppointment input{
+  background-color: white;
+}
+
+.close{
+  width: 30px;
+  height: 30px;
+  float: right;
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+}
+
+.editAppointment select{
+  background-color: white;
+}
+
+.editAppointment h2{
+  padding: 0;
+  margin-top: 0;
+  text-align: center;
+}
+
+.edit{
+  width: 30px;
+  height: 30px;
+  background-size: cover;
+  background-position: center;
+  float: right; 
+  margin-top: -0.5%;
+  cursor: pointer;
+}
+
+.delete{
+  width: 30px;
+  height: 30px;
+  background-size: cover;
+  background-position: center;
+  float: right; 
+  margin-top: -0.5%;
+  cursor: pointer;
+  margin-left: 1%;
+}
+
+.editAppointment #patientName{
+  width: 97%;
+}
+
+.editAppointment #time{
+  width: 42%;
+}
+
+.editAppointment #drRoom{
+  width: 47%; 
+  margin-right: 2%;
+}
+
+.editAppointment #dr{
+  width: 47.6%; 
 }
 
 /* REGISTRATION PAGE__________________________________________________________________*/
