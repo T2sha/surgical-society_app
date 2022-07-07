@@ -18,6 +18,7 @@ import { UilSearch } from '@iconscout/react-unicons'
 import EditAppointment from "./EditAppointment";
 import deleteIcon from '../Icons/delete.svg';
 
+
 /* Calendar */
 // import {CalendarComponent} from '@syncfusion/ej2-react-calendars';
 import Calendar from '../components/MyCalendar'
@@ -27,7 +28,7 @@ const Appointments = (props)=>{
 
     const [ rerender, setRerender ] = useState(false);
     const deleteAppoint = (e) => {
-        axios.post('http://localhost/surgicalApi/deleteAppointments.php', {id: e})
+        axios.post('http://localhost:8888/surgicalApi/deleteAppointments.php', {id: e})
         .then((res) => {
             setRerender(true);
         })
@@ -63,23 +64,23 @@ const Appointments = (props)=>{
 
 
 
-        axios.post('http://localhost/surgicalApi/readEvents.php')
+        axios.post('http://localhost:8888/surgicalApi/readEvents.php')
         .then((res) => {
             console.log(res);
             setEventData(res.data)
         })
 
-        axios.post('http://localhost/surgicalApi/readDoctors.php')
+        axios.post('http://localhost:8888/surgicalApi/readDoctors.php')
         .then((res) => {
             setDocData(res.data)
         })
 
-        axios.post('http://localhost/surgicalApi/readPatients.php')
+        axios.post('http://localhost:8888/surgicalApi/readPatients.php')
         .then((res) => {
             setPatData(res.data)
         })
 
-        axios.post('http://localhost/surgicalApi/readAppointments.php')
+        axios.post('http://localhost:8888/surgicalApi/readAppointments.php')
         .then((res) => {
 
             if(res.data.length > 1) {
@@ -115,7 +116,7 @@ const Appointments = (props)=>{
 
         console.log(details)
         
-        axios.post('http://localhost/surgicalApi/createAppointment.php', details)
+        axios.post('http://localhost:8888/surgicalApi/createAppointment.php', details)
         .then((res) => {
             setRerender(true);
         })
@@ -135,7 +136,7 @@ const Appointments = (props)=>{
 
     const addEvent = () => {
         console.log(eventMessage.current.value)
-        axios.post('http://localhost/surgicalApi/createEvent.php', {message: eventMessage.current.value})
+        axios.post('http://localhost:8888/surgicalApi/createEvent.php', {message: eventMessage.current.value})
         .then((res) => {
             setRerender(true);
         })
@@ -198,7 +199,7 @@ const Appointments = (props)=>{
 
                 <div className='recep-info'>
                     <div className="Receptionist">
-                        <img  src={"http://localhost/surgicalApi/" + recepImg} alt="" />
+                        <img  src={"http://localhost:8888/surgicalApi/" + recepImg} alt="" />
                     </div>
 
                     <div className="textside-image">

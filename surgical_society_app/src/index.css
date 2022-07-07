@@ -1049,3 +1049,22 @@ top: 77px;
     background-color: #F98770;
     width: 100%;
 }
+
+.new-patients{
+position: absolute;
+width: 260px;
+height:100%;
+left: 20px;
+top: 100px;
+background: #FFFFFD;
+border-radius: 45px;
+}
+
+.brain{
+position: absolute;
+width: 73.57px;
+height: 59.12px;
+left: 12px;
+top: -25px;
+
+}

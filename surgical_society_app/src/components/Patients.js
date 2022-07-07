@@ -7,6 +7,9 @@ import EditPatients from './EditPatients';
 import Profile from '../Images/Profile.png';
 import eye from '../Icons/eye.svg';
 
+/* Images*/
+import brain from '../Images/Brain.svg';
+
 
 const Patients = (props) => {
     const navigate = useNavigate();
@@ -32,7 +35,7 @@ const Patients = (props) => {
 
         console.log('asgasg')
         
-        axios.post('http://localhost/surgicalApi/updatePatient.php', details)
+        axios.post('http://localhost:8888/surgicalApi/updatePatient.php', details)
         .then((res) => {
             console.log(res)
             setRender(true)
@@ -43,7 +46,7 @@ const Patients = (props) => {
         let id = e;
         setRender(true);
 
-        axios.post('http://localhost/surgicalApi/deletePatient.php', {id: id})
+        axios.post('http://localhost:8888/surgicalApi/deletePatient.php', {id: id})
         .then((res) => {
             console.log(res);
         })
@@ -53,7 +56,7 @@ const Patients = (props) => {
     const showPatDetails = (e) => {
         let id = e;
 
-        axios.post('http://localhost/surgicalApi/readPatientInfo.php', {id: id})
+        axios.post('http://localhost:8888/surgicalApi/readPatientInfo.php', {id: id})
         .then((res) => {
             let defaultValues = [
                 res.data[0].name,
@@ -65,7 +68,7 @@ const Patients = (props) => {
             let patientCard = res.data.map(item => 
                 <div>
                     <div className='detailedProfileImg'>
-                        <img src={"http://localhost/surgicalApi/" + item.img} alt="" />
+                        <img src={"http://localhost:8888/surgicalApi/" + item.img} alt="" />
                     </div>
                     <div className='detailedProfileName'>
                         <h10>{item.name}</h10>
@@ -123,13 +126,13 @@ const Patients = (props) => {
     const [ patCards, setPatCards ] = useState([]);
     useEffect(() => {
         console.log('asgasgasg')
-        axios.post('http://localhost/surgicalApi/readPatients.php')
+        axios.post('http://localhost:8888/surgicalApi/readPatients.php')
         .then((res) => {
             console.log(res);
             let patientCard = res.data.map(item => 
                 <div className="patientCard">
                     <div className="patientProfile">
-                        <img src={"http://localhost/surgicalApi/" + item.img} className="patientImage" />
+                        <img src={"http://localhost:8888/surgicalApi/" + item.img} className="patientImage" />
                     </div>
                     <div className='patDetailsContainer'>
                         <h41><strong>{item.name}</strong></h41>
@@ -157,7 +160,9 @@ const Patients = (props) => {
                     </div>
 
                     <div className="Add-New-Patients">
-                        <div className="form-patients">
+                        <div className="new-patients">
+                        <img className ="brain" src = {brain}></img>
+
 
                         </div>
 

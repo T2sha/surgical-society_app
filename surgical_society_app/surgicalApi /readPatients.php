@@ -8,7 +8,7 @@ header('Access-Control-Allow-Headers: * ');
 $request_body = file_get_contents('php://input');
 $data = json_decode($request_body);
 
-$sql = "SELECT * FROM Patients;";
+$sql = "SELECT * FROM patients;";
 $result = mysqli_query($conn, $sql);
 $resultCheck = mysqli_num_rows($result);
 
