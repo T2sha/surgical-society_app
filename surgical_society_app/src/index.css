@@ -778,7 +778,7 @@ top: 77px;
 
 .List-Patients{
   position: relative;
-  width: 560px;
+  width: 300px;
   height: 100vh;
   left: 189px;
   top: 7px;
@@ -842,18 +842,6 @@ top: 77px;
     border-radius: 50%;
 }
 
-.patientProfile{
-  margin: 0 auto;
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  background-position: center;
-  background-size: cover;
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-
-}
 
 .patientProfile img{
   width: 100%;
@@ -960,28 +948,104 @@ top: 77px;
   height: 10vh;
 }
 
+.patientCard {
+    display: flex;
+    gap: 20px;
+    padding: 10px;
+    width: 90%;
+    background-color: white;
+    border-radius: 10px;
+    margin: auto;
+    margin-bottom: 10px;
+    align-items: center;
+    justify-content: space-between;
+}
 
+.patientProfile {
+    width: 65px;
+    height: 65px;
+}
 
+.patientProfile img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 
+.patDetailsContainer {
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 
+.iconContainer {
+    width: 30px;
+    height: 30px;
+    background-color: #f98770;
+    border-radius: 50%;
+    padding: 5px;
+}
 
+.iconContainer:hover {
+    cursor: pointer;
+}
 
+.detailedProfileImg {
+    width: 150px;
+    margin: auto;
+}
 
+.detailedProfileImg img {
+    width: 100%;
+}
 
+.detailedProfileName {
+    margin: auto;
+    font-size: 30px;
+    margin-top: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
 
+.firstDetailedInfo {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
 
+.secondDetailedInfo {
+    display: flex;
+    flex-direction: column;
+    font-size: 10px;
+}
 
+.detailedInfo {
+    font-size: 15px;
+    font-weight:600;
+}
 
+.detailedProfileHistory {
+    margin: auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
 
+.profileHistoryTitle {
+    font-size: 23px;
+}
 
+.Detailed-view button {
+    margin: auto;
+    text-align: center;
+}
 
-
-
-
-
-
-
-
-
-
-
+.update input {
+    border: none;
+    background-color: #F98770;
+    width: 100%;
+}
