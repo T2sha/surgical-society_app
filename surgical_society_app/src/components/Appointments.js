@@ -35,6 +35,10 @@ const Appointments = (props)=>{
     }
     
     const [ recepName, setRecepName ]= useState('');
+    const [ recepGender, setRecepGender]=useState('');
+    const [ recepPhone, setRecepPhone]=useState('');
+    const [ recepEmail, setRecepEmail]=useState('');
+    const [ recepRank, setRecepRank]=useState('');
     const [ recepImg, setRecepImg ]= useState('');
     const [ appointsData, setAppointsData ] = useState([]);
     const [ patData, setPatData ] = useState([]);
@@ -44,9 +48,20 @@ const Appointments = (props)=>{
         setRerender(false);
         let username = sessionStorage.getItem('activeUser');
         let image = sessionStorage.getItem('imgProfile');
+        let gender = sessionStorage.getItem('gender');
+        let phone = sessionStorage.getItem('phone');
+        let email = sessionStorage.getItem('email');
+        let rank = sessionStorage.getItem('rank');
+
         console.log("🚀 ~ file: Appointments.js ~ line 46 ~ useEffect ~ image", image)
         setRecepImg(image);
         setRecepName(username);
+        setRecepGender(gender);
+        setRecepPhone(phone);
+        setRecepEmail(email);
+        setRecepRank(rank);
+
+
 
         axios.post('http://localhost:8888/surgicalApi/readEvents.php')
         .then((res) => {
@@ -188,10 +203,10 @@ const Appointments = (props)=>{
 
                     <div className="textside-image">
                             <h14>{recepName}</h14>
-                            <h22>Female</h22>
-                            <h22>0824170677</h22>
-                            <h22>vian@gmail.com</h22>
-                            <h22>rank</h22>
+                            <h22>{recepGender}</h22>
+                            <h22>{recepPhone}</h22>
+                            <h22>{recepEmail}</h22>
+                            <h22>{recepRank}</h22>
                     </div>
                 </div>
 
