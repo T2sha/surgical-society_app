@@ -1,103 +1,172 @@
 import Navigation from './Navigation';
 import { UilSearch } from '@iconscout/react-unicons'
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import EditPatients from './EditPatients';
+import Profile from '../Images/Profile.png';
+import eye from '../Icons/eye.svg';
 
 
+const Patients = (props) => {
+    const navigate = useNavigate();
 
-const Patients = (props) =>{
+    const [ render, setRender ] = useState(false);
 
+    let pName = useRef();
+    let pNumber = useRef();
+    let pAid = useRef();
+    const updateInfo = (e) => {
+        let id = e;
+        let name = pName.current.value
+        let number = pNumber.current.value
+        let aid = pAid.current.value
 
-const navigate = useNavigate();
-
-const [renderPatientImage, setRenderPatientImage] = useState();
-const [modal, setModal] = useState();
-
-useEffect(() =>{
-    const userSession = sessionStorage.getItem('activeUser');
-    if(userSession === '' || userSession === null){
         
-    }
+        let details = {
+            name: name,
+            number: number,
+            aid: aid,
+            id: id
+        }
 
-    let patientId = {id: props.uniqueId};
-    axios.post('http://localhost:8888/surgicalApi/readPatientProfile.php', patientId)
-    .then((res)=>{
-        let data = res.data;
-        let source = data[0].image;
-        let renderPath = 'http://localhost:8888/surgicalApi/' + source;
-        setRenderPatientImage(renderPath);
-        console.log(renderPath);
-    })
-    .catch(err=>{
-        console.log(err);
-    })
-
-    console.log('asgasg')
-},[]);
-
-const editPatient = () => {
-    setModal(<EditPatients id={props.uniqueId} upRender={props.rerender} rerender={setModal} origionalName={props.name} origionalSurname={props.surname} origionalAge={props.age} origionalGender={props.gender} origionalCell={props.cellNo} origionalEmail={props.email} origionalMedicalAidNo={props.specialization}/>);
-}
-
-const deletePatient = () => {
-    if(window.confirm("Are you sure you want to remove this Patient?") === true){
+        console.log('asgasg')
         
-        let patientId = {id: props.uniqueId};
-
-        axios.post('http://localhost:8888/surgicalApi/deletePatient.php', patientId)
+        axios.post('http://localhost/surgicalApi/updatePatient.php', details)
         .then((res) => {
-            let data = res.data;
-            console.log(res);
-            props.rerender(true);
-        });
-
-    } else {
-        console.log("The patient was not deleted.");
+            console.log(res)
+            setRender(true)
+        })
     }
-}
+
+    const deletePat = (e) => {
+        let id = e;
+        setRender(true);
+
+        axios.post('http://localhost/surgicalApi/deletePatient.php', {id: id})
+        .then((res) => {
+            console.log(res);
+        })
+    }
+
+    const [ detailedView, setDetailedView ] = useState([]);
+    const showPatDetails = (e) => {
+        let id = e;
+
+        axios.post('http://localhost/surgicalApi/readPatientInfo.php', {id: id})
+        .then((res) => {
+            let defaultValues = [
+                res.data[0].name,
+                res.data[0].phone_number,
+                res.data[0].medical_aid_number
+            ]
+
+            console.log(defaultValues)
+            let patientCard = res.data.map(item => 
+                <div>
+                    <div className='detailedProfileImg'>
+                        <img src={"http://localhost/surgicalApi/" + item.img} alt="" />
+                    </div>
+                    <div className='detailedProfileName'>
+                        <h10>{item.name}</h10>
+                    </div>
+                    <div className='detailedProfileInfo'>
+                            <div className='firstDetailedInfo'>
+                                <div className='secondDetailedInfo'>
+                                    <h21>Gender</h21>
+                                    <h21 className='detailedInfo'>{item.gender}</h21>
+                                </div>
+                                <div className='secondDetailedInfo'>
+                                    <h21>Age</h21>
+                                    <h21 className='detailedInfo'>{item.age}</h21>
+                                </div>
+                            </div>
+                            <div className='firstDetailedInfo'>
+                                <div className='secondDetailedInfo'>
+                                    <h21>Aid Number</h21>
+                                    <h21 className='detailedInfo'>{item.medical_aid_number}</h21>
+                                </div>
+                                <div className='secondDetailedInfo'>
+                                    <h21>Appointment</h21>
+                                    <h21 className='detailedInfo'>{item.appoint_date}</h21>
+                                </div>
+                            </div>
+                    </div>
+                    <div className='detailedProfileHistory'>
+                        <div className='profileHistoryTitle'>
+                            <h10><strong>Appointment History</strong></h10>
+                        </div>
+                        <div>
+                            <h11>Dr. Kobus 2020-09-10</h11>  
+                        </div>
+                    </div>
+
+                    <button onClick={() => deletePat(item.id)}>Delete</button>
 
 
-    return (
-        <>
-         <Navigation/> 
+                    <div className='update' key={item.id}>
+                        <input ref={pName} defaultValue={defaultValues[0]} type="text" placeholder='Patient Name'/>
+                        <input ref={pNumber} defaultValue={defaultValues[1]} type="text" placeholder='Patient Number'/>
+                        <input ref={pAid} defaultValue={defaultValues[2]} type="text" placeholder='Patient Medical Aid Number'/>
 
-        {modal}
+                        <button onClick={() => updateInfo(item.id)}>
+                            Update Info
+                        </button>
+                    </div>
+                </div>
+            )
+            setDetailedView(patientCard);
+            console.log(res);
+        })
+    }
 
-        <div className=" List-Patients">
-              <div className="Detailed-view">
-
-              </div>
-         </div>
-
-          <div className="Add-New-Patients">
-              <div className="form-patients">
-
-              </div>
-
-          </div>
-          
-        <div className="patientCard">
-            <div className="editPatient" onClick={editPatient}></div>
-            <div className="deletePatient" onClick={deletePatient}></div>
-            <div className="patientProfile">
-                <img src={renderPatientImage} className="patientImage"/>
-            </div>
-            <h4>{props.name} {props.surname}</h4>
-            <p id="medicalAidNo">{props.medicalAidNo}</p>
-            <hr/>
-            <p><strong>Gender: </strong>{props.gender}</p>
-            <p><strong>Age: </strong>{props.age}</p>
-            <p><strong>Cell No: </strong>{props.cellNo}</p>
-        </div>
-
-       
+    const [ patCards, setPatCards ] = useState([]);
+    useEffect(() => {
+        console.log('asgasgasg')
+        axios.post('http://localhost/surgicalApi/readPatients.php')
+        .then((res) => {
+            console.log(res);
+            let patientCard = res.data.map(item => 
+                <div className="patientCard">
+                    <div className="patientProfile">
+                        <img src={"http://localhost/surgicalApi/" + item.img} className="patientImage" />
+                    </div>
+                    <div className='patDetailsContainer'>
+                        <h41><strong>{item.name}</strong></h41>
+                        <p2>{item.gender.toUpperCase() + ', ' + item.age}</p2>
+                    </div>
+                    <div className='iconContainer'>
+                        <img onClick={() => showPatDetails(item.id)} src={eye} alt="" />
+                    </div>
+                </div>    
+            )
+            setRender(false)
+            setPatCards(patientCard);
+        })
+    }, [render])
     
-);
+    return (
+                <>
+                    <Navigation />
+                    <div className=" List-Patients">
 
-        
-        </>
-    )
+                        {patCards}
+                        <div className="Detailed-view">
+                            {detailedView}
+                        </div>
+                    </div>
+
+                    <div className="Add-New-Patients">
+                        <div className="form-patients">
+
+                        </div>
+
+                    </div>
+
+
+
+                </>
+            );
 }
+
 export default Patients 

@@ -34,7 +34,7 @@ const Login = () => {
   
       console.log(inputs);
   
-          axios.post('http://localhost:8888/surgicalApi/readLogin.php', inputs)
+          axios.post('http://localhost/surgicalApi/readLogin.php', inputs)
               .then(function(response){
                console.log(response);
   
