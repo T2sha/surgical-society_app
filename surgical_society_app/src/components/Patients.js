@@ -161,7 +161,21 @@ const Patients = (props) => {
 
                     <div className="Add-New-Patients">
                         <div className="new-patients">
+                            <h2 className="Add">ADD NEW PATIENT</h2>
                         <img className ="brain" src = {brain}></img>
+
+                    <div className="new-patient-form">
+
+                    <input  type="text" placeholder='Patient Name'/>
+                    <input  type="text" placeholder='Patient Surname'/>
+                    <input  type="text" placeholder='gender'/>
+                    <input type="text" placeholder='Age'/>
+                    <input type="text" placeholder='Appointment Date '/>
+                    <input type="text" placeholder='Previous Doctor'/>
+                    <button type="submit">Add</button>
+
+                    </div>
+
 
 
                         </div>

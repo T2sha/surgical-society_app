@@ -1068,3 +1068,16 @@ left: 12px;
 top: -25px;
 
 }
+
+.Add{
+position: absolute;
+width: 216px;
+height: 20px;
+top:-70px;
+left:15px;
+
+}
+
+.new-patient-form{
+  top: 100px;
+}
