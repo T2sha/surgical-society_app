@@ -34,12 +34,13 @@ const Login = () => {
   
       console.log(inputs);
   
-          axios.post('http://localhost:8888/surgicalApi/userLogin.php', inputs)
+          axios.post('http://localhost/surgicalApi/readLogin.php', inputs)
               .then(function(response){
                console.log(response);
   
-               if(response.data === true){
-                  sessionStorage.setItem('activeUser',inputs.username);
+               if(response.data !== false){
+                    sessionStorage.setItem('activeUser', response.data[0].name);
+                    sessionStorage.setItem('imgProfile', response.data[0].img);
                    navigate("/Appointments");
                }else{
                  console.log('Not working')
@@ -64,11 +65,6 @@ const Login = () => {
          <input className ="log-input" name= 'password'type="password" placeholder='Password'onChange={passwordVal}/>
          <button type='submit' onClick={handleSubmit}>Login</button>
          </form>
-       
-        
-       
-
-       
         </div>
         </>
 

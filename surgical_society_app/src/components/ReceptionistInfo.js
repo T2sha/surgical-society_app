@@ -30,6 +30,8 @@ const ReceptionistInfo = (props) => {
         .catch(err=>{
             console.log(err);
         })
+
+        console.log('aasgasg')
         
     }, []);
 

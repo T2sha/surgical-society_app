@@ -1,5 +1,5 @@
 /* React */
-import React from 'react' ;
+import React, { useRef } from 'react' ;
 import axios from 'axios';
 import MiniModalLeft from './/MiniModalLeft';
 import MiniModalRight from './MiniModalRight';
@@ -52,32 +52,41 @@ const Register =() => {
     const nameVal = (e) => {
         const value = e.target.value;
         setInputs({...inputs, first: value});
-        if(inputs.first !== ''){setNameError();} 
+        if(inputs.first !== ''){setNameError();} else {
+            setNameError('Please enter a name')
+        } 
         console.log(inputs)
     }
 
+    const fileClick = () => {
+        inputFile.current.click();
+        console.log('asg')
+    }
+    const inputFile = useRef();
     const imageVal = (e) => {           
-            let file = e.target.files[0];
-            let reader = new FileReader();
+        let file = e.target.files[0];
+        let reader = new FileReader();
 
-            reader.onloadend = function() {
-            console.log(reader.result);
+        reader.onloadend = function() {
             let imgFile = reader.result;
 
             setInputs({...inputs, image: imgFile});
 
             let image = new Image();
             image.src = reader.result;
-            document.getElementById('profileimg').appendChild(image);
+            document.getElementById('profileImg').appendChild(image);
             
-            }
-            reader.readAsDataURL(file);
+        }
+        console.log('asg')
+        reader.readAsDataURL(file);
     }
 
     const surnameVal = (e) => {
         const value = e.target.value;
         setInputs({...inputs, last: value});
-        if(inputs.last !== ''){setSurnameError();} 
+        if(inputs.last !== ''){setSurnameError();} else {
+            setSurnameError('Please enter a last name')
+        } 
     }
 
     const ageVal = (e) => { //e is for events
@@ -93,7 +102,7 @@ const Register =() => {
 
         //check validation
         if(!value.match(ageRegex)){
-            setAgeError(<MiniModalLeft message="Invalid input" />); //tooltip
+            setAgeError("Invalid input"); //tooltip
             //Note: Explain why the format isn't valid in the message as well
         }
     }
@@ -108,7 +117,7 @@ const Register =() => {
 
           //check validation
           if(value === 'none'){
-            setGenderError(<MiniModalRight message="Select your gender." />); //tooltip
+            setGenderError("Select your gender."); //tooltip
             //Note: Explain why the format isn't valid in the message as well
         }
 
@@ -117,7 +126,7 @@ const Register =() => {
     const phoneVal = (e) => { //e is for events
         console.log(inputs)
         //validation
-        const contactRegex = /^(\()?\d{3}(\))?(-|\s)?\d{3}(-|\s)\d{4}$/;
+        const contactRegex = /^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/;
 
         const value = e.target.value;
         setInputs({...inputs, phone: value});
@@ -127,7 +136,7 @@ const Register =() => {
 
         //check validation
         if(!value.match(contactRegex)){
-            setPhoneError(<MiniModalRight message="Contact number is not a valid format" />); //tooltip
+            setPhoneError("Contact number is not a valid format"); //tooltip
             //Note: Explain why the format isn't valid in the message as well
         }
     }
@@ -140,7 +149,7 @@ const Register =() => {
             setEmailError();
         } 
         if(!value.match(mailcodex)){
-            setEmailError(<MiniModalLeft message="Email is not a valid format" />);
+            setEmailError("Email is not a valid format");
         }    
     }
 
@@ -157,14 +166,12 @@ const Register =() => {
 
         //check validation
         if(!value.match(passwordRegex)){
-            setPasswordError(<MiniModalLeft message="Password must include a capital,symbols and numbers" />); //tooltip
+            setPasswordError("Password must include a capital,symbols and numbers"); //tooltip
             //Note: Explain why the format isn't valid in the message as well
         }
     }
 
     const passwordConVal = (e) => { //e is for events
-
-
         const value = e.target.value;
         setInputs({...inputs, passwordCon: value});
 
@@ -172,13 +179,11 @@ const Register =() => {
         if(inputs.passwordCon !== ''){setPasswordConError();}
 
         //check if matching
-
-
        if(inputs.password === value){
            setPasswordConError();
-         }else{
-             setPasswordConError(<MiniModalLeft message="Your passwords don't match" />);
-         }
+        }else{
+            setPasswordConError("Your passwords don't match");
+        }
     }
 
     const validateEmail = () => {
@@ -189,7 +194,7 @@ const Register =() => {
             setEmailIcon(Okay);
             setEmailAvail();
          } else if(response.data === "Not Available") {
-            setEmailAvail(<MiniModalRight message="Email Is Not Available" />);
+            setEmailAvail("Email Is Not Available");
             setEmailIcon(NotOkay);
          } else if(response.data === "") {
             setEmailIcon();
@@ -207,7 +212,7 @@ const Register =() => {
             setUserAvail();
             setUserIcon(Okay);
          } else {
-            setUserAvail(<MiniModalLeft message="Username Is Not Available" />);
+            setUserAvail("Username Is Not Available")
             setUserIcon(NotOkay);
          }
         });
@@ -216,53 +221,53 @@ const Register =() => {
    
     const  handleSubmit=() =>{
         if(inputs.name === ''){
-            setNameError(<MiniModalLeft message="Everyone has one..." />);
+            setNameError("Everyone has one..." )
         } else {
             setNameError();
         }
 
         if(inputs.surname === ''){
-            setSurnameError(<MiniModalRight message="You aren't Seal... " />);
+            setSurnameError("You aren't Seal... ");
         } else {
             setSurnameError();
         }
 
         if(inputs.age === ''){
-            setAgeError(<MiniModalLeft message="You must have an email" />);
+            setAgeError("You must have an email");
         } else {
             setAgeError();
         }
 
         if(inputs.gender === ''){
-            setGenderError(<MiniModalLeft message="You will login with this" />);
+            setGenderError("You will login with this");
         } else {
             setGenderError();
         }
 
         if(inputs.phone === ''){
-            setPhoneError(<MiniModalRight message="We will call you all the time" />);
+            setPhoneError("We will call you all the time");
         } else {
             setPhoneError();
         }
 
         if(inputs.password === ''){
-            setPasswordError(<MiniModalLeft message="Keep it simple and easy..." />);
+            setPasswordError("Keep it simple and easy...");
         } else {
             setPasswordError();
         }
 
         if(inputs.passwordCon === ''){
-            setPasswordConError(<MiniModalLeft message="They Kinda need to match..." />);
+            setPasswordConError("They Kinda need to match...");
         } else {
             setPasswordConError();
         }
 
         let result = Object.values(inputs).some(o => o === '');
         console.log(inputs)
-        // if(result){
-        //     console.log('Not working');
-        // } else {
-            axios.post('http://localhost:8888/surgicalApi/addUser.php', inputs)
+        if(result){
+            console.log('Not working');
+        } else {
+            axios.post('http://localhost/surgicalApi/createUser.php', inputs)
             .then(function(response){
              console.log(response);
 
@@ -272,7 +277,7 @@ const Register =() => {
              }
 
             });
-        // }
+        }
 
     }
     return (
@@ -286,45 +291,67 @@ const Register =() => {
             <div className= 'register-form'>
                     <h2 className= "R-text">Register</h2>
                     <p className="Rsub-text">Already have an account?</p>
-                    <a href='./Login' ><p className='login-link' >Login</p></a>
-                    <div className='imageArea'></div>
-                      <p className="profile-text">Select your profile picture</p>
+                    <a href='./Login'><p className='login-link'>Login</p></a>
+
+                    <p className="profile-text" onClick={fileClick}>Select your profile picture</p>
+                    <input type="file" ref={inputFile} onChange={imageVal} style={{display: 'none'}} />
                       
-                    <div id="profileing" className= 'profile'onChange={imageVal}>
+                    <div id="profileing" className= 'profile' onClick={fileClick}>
+                        <div id='profileImg'>
+
+                        </div>
                     </div>
 
+                    <div className='inputs-container'>
+                        <div className='inputs-errors'>
+                            <label>{nameError}</label>
+                            <label>{surnameError}</label>
+                        </div>
+                        <div className='inputs'>
+                            <input name= 'name'type="text" placeholder='Name' onChange={nameVal}/>
+
+                            <input name= 'surname'type="text" placeholder='Surname'onBlur={validateUser}  onChange={surnameVal}/>
+                        </div>
+
+                        <div className='inputs-errors'>
+                            <label>{ageError}</label>
+                            <label>{genderError}</label>
+                        </div>
+
+                        <div className='inputs'>
+                            <input name= 'age' type="text" placeholder='Age' onChange={ageVal}/>
+                            
+                            <select name="gender" defualtvalue="none" onChange={genderVal}>
+                                <option value="none">Gender</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div className='inputs-errors'>
+                            <label>{phoneError}</label>
+                            <label>{emailError} </label>   
+                            <label>{emailAvail}</label>
+                        </div>
+
+                        <div className='inputs'>
+                            <input name= 'phone' type="text" placeholder='Phone number' onChange={phoneVal}/>
+                            <input name= "email" type="text" placeholder='Email'  onChange={emailVal} onBlur={validateEmail}/>
+                        </div>
+
+                        <div className='inputs-errors'>
+                            <label>{passwordError}</label>
+                            <label>{passwordConError}</label>
+                        </div>
+
+                        <div className='inputs'>
+                            <input name= "password" type="password" placeholder='Password' onChange={passwordVal}/>
+                            <input name= "passwordCon" type="password" placeholder='Confirm Password' onChange={passwordConVal}/>
+                        </div>
                         
-                        {nameError}
-                        <input name= 'name'type="text" placeholder='Name' onChange={nameVal}/>
-
-                        {surnameError}
-                        <input name= 'surname'type="text" placeholder='Surname'onBlur={validateUser}  onChange={surnameVal}/>
-
-                        {ageError}
-                        <input name= 'age' type="text" placeholder='Age' onChange={ageVal}/>
-                        
-                        {genderError}
-                        <select name="gender" defualtvalue="none" onChange={genderVal}>
-                            <option value="none">Gender</option>
-                            <option value="male">Male</option>
-                            <option value="female">Female</option>
-                            <option value="other">Other</option>
-                        </select>
-                        
-                        {phoneError}
-                        <input name= 'phone' type="text" placeholder='Phone number' onChange={phoneVal}/>
-
-                        {emailError}    
-                        {emailAvail}
-                        <input name= "email" type="text" placeholder='Email'  onChange={emailVal} onBlur={validateEmail}/>
-
-                        {passwordError}
-                        <input name= "password" type="password" placeholder='Password' onChange={passwordVal}/>
-
-                        {passwordConError}
-                        <input name= "passwordCon" type="password" placeholder='Confirm Password' onChange={passwordConVal}/>
-
                         <button type='submit'onClick={handleSubmit}>Register User</button>
+                    </div>          
             </div>
         </div>
     )

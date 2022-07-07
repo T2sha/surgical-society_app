@@ -20,10 +20,19 @@ if($email === "" && $password === ""){
     $resultCheck = mysqli_num_rows($result);
 
     if($resultCheck > 0){
-        echo 'true';
+
+        $emparray = array();
+
+        while($row = mysqli_fetch_assoc($result)){
+            $emparray[] = $row;
+        }
+
+        echo json_encode($emparray);
+
+
     } else {
-        echo 'false';
-    }
+        echo "false";
+    } 
 }
 
 ?>

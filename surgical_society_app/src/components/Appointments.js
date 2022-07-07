@@ -1,8 +1,7 @@
 /* React */
 import React from 'react';
 import Navigation from './Navigation';
-import Calendar from './Calendar';
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import axios from 'axios';
 
 /*Pages*/
@@ -17,119 +16,192 @@ import doctor from '../Images/doctor.svg';
 /* Icons */
 import { UilSearch } from '@iconscout/react-unicons'
 import EditAppointment from "./EditAppointment";
+import deleteIcon from '../Icons/delete.svg';
 
 /* Calendar */
-import {CalendarComponent} from '@syncfusion/ej2-react-calendars';
+// import {CalendarComponent} from '@syncfusion/ej2-react-calendars';
+import Calendar from '../components/MyCalendar'
 
 
 const Appointments = (props)=>{
 
-  const [modal, setModal] = useState();
-  const [renderUserInfo, setRenderUserInfo] = useState();
-  const [userInfo, setUserInfo] = useState();
-  const [greetingName, setGreetingName] = useState();
-  const [userId, setUserId] = useState({
-    activeUser: sessionStorage.getItem('activeUser'),
+    const [ rerender, setRerender ] = useState(false);
+    const deleteAppoint = (e) => {
+        axios.post('http://localhost/surgicalApi/deleteAppointments.php', {id: e})
+        .then((res) => {
+            setRerender(true);
+        })
 
-});
+    }
+    
+    const [ recepName, setRecepName ]= useState('');
+    const [ recepImg, setRecepImg ]= useState('');
+    const [ appointsData, setAppointsData ] = useState([]);
+    const [ patData, setPatData ] = useState([]);
+    const [ docData, setDocData ] = useState([]);
+    const [ eventData, setEventData ] = useState([]);
+    useEffect(() => {
+        setRerender(false);
+        let username = sessionStorage.getItem('activeUser');
+        let image = sessionStorage.getItem('imgProfile');
+        console.log("🚀 ~ file: Appointments.js ~ line 46 ~ useEffect ~ image", image)
+        setRecepImg(image);
+        setRecepName(username);
 
-const editAppointment = () => {
-    setModal(<EditAppointment upRender={props.rerender} rerender={setModal} origionalPatientName={props.patientName} origionalDoctorName={props.doctorName} origionalDate={props.date} origionalTime={props.time} origionalRoom={props.room} id={props.uniqueId}/>);
-}
+        axios.post('http://localhost/surgicalApi/readEvents.php')
+        .then((res) => {
+            console.log(res);
+            setEventData(res.data)
+        })
 
+        axios.post('http://localhost/surgicalApi/readDoctors.php')
+        .then((res) => {
+            setDocData(res.data)
+        })
 
+        axios.post('http://localhost/surgicalApi/readPatients.php')
+        .then((res) => {
+            setPatData(res.data)
+        })
 
-  useEffect(()=>{
+        axios.post('http://localhost/surgicalApi/readAppointments.php')
+        .then((res) => {
 
-    axios.post('http://localhost:8888/surgicalApi/receptionistRead.php',userId )
-    .then((res)=>{
-      let data = res.data;
-      let renderUserInfo = data.map((item) =>  <ReceptionistInfo key={item.id} rerender={setRenderUserInfo} name={item.name} surname={item.surname} rank={item.rank}  age={item.age} profileImage={item.profileImage} contact={item.phoneNumber} email={item.email} password={item.password}/>);
-      setUserInfo(renderUserInfo);
-      setRenderUserInfo(false);
-      setGreetingName(data[0].name); 
-    })
-    .catch(err=>{
-      console.log(err);
-    });
+            if(res.data.length > 1) {
+                let appointItem = res.data.map(item => 
+                    <div className='appoint-table' key={item.id}>
+                        <p1>{item.name}</p1>
+                        <p1>{item.doctor}</p1>
+                        <p1>{item.date}</p1>
+                        <img onClick={() => deleteAppoint(item.id)} src={deleteIcon} alt="" />
+                    </div>    
+                )
+                setAppointsData(appointItem);
+            } else {
+                setAppointsData('Please add an appointment');
+            }
 
- },[]);
+        })
+    }, [rerender]);
+
+    let aPatient = useRef();
+    let aDoctor = useRef();
+    let aDate = useRef();
+    const addAppointment = () => {
+        let patient = aPatient.current.value;
+        let doc = aDoctor.current.value;
+        let date = aDate.current.value;
+
+        let details = {
+            pat: patient,
+            doc: doc,
+            date: date
+        }
+
+        console.log(details)
+        
+        axios.post('http://localhost/surgicalApi/createAppointment.php', details)
+        .then((res) => {
+            setRerender(true);
+        })
+    }
+
+/*     const editAppointment = () => {
+        setModal(<EditAppointment upRender={props.rerender} rerender={setModal} origionalPatientName={props.patientName} origionalDoctorName={props.doctorName} origionalDate={props.date} origionalTime={props.time} origionalRoom={props.room} id={props.uniqueId}/>);
+    } */
+
+    const [ eventMess, setEventMess ] = useState('');
+    let eventMessage = useRef();
+    const getEventMessage = (e) => {
+        let message = e.target.value;
+        console.log(message)
+        setEventMess(...message, message);
+    }
+
+    const addEvent = () => {
+        console.log(eventMessage.current.value)
+        axios.post('http://localhost/surgicalApi/createEvent.php', {message: eventMessage.current.value})
+        .then((res) => {
+            setRerender(true);
+        })
+    }
+
     return(
         <>
-         <Navigation/> 
+            <Navigation/> 
 
-         <div className = "app-container">
-             <img className ="drip" src = {drip}></img>
-             <h2>Appointments</h2>
-               <div className = "welcome">
-                 <h3>Hi, {greetingName}</h3>
-                 <p>"May your day be blessed !"</p>
-                 <img className="doctor" src={doctor}></img>
-
-             </div>
-
-
-             <h4>Calendar</h4>
-        <div className="calendar">
-        <CalendarComponent></CalendarComponent>
-
-             </div>
-
-        <div><input className="search-input" type="text" placeholder="Search..."/>
-            <div><button className="search-button"></button>
-                 <div className="search-icon"><UilSearch/></div>  
-                 </div>
-
-             </div>
+            <div className = "app-container">
+                <img className ="drip" src = {drip}></img>
+                <h2>Appointments</h2>
+                <div className = "welcome">
+                    <h3>Hi, {recepName}</h3>
+                    <p>"May your day be blessed !"</p>
+                    <img className="doctor" src={doctor}></img>
+                </div>
 
 
-             <h4 className="list">List of appointments</h4>
-            <div className="app-list">
+                <h4>Calendar</h4>
+                <div className="calendar">
+                    <textarea onChange={(e) => getEventMessage(e)} ref={eventMessage}></textarea>
+                    <button onClick={addEvent}>Add event</button>
 
-           
+                </div>
 
+                <div>
+                    <input className="search-input" type="text" placeholder="Search..."/>
+                    <div>
+                        <button className="search-button"></button>
+                        <div className="search-icon"><UilSearch/></div>  
+                    </div>
+                </div>
 
+                <h4 className="list">List of appointments</h4>
+                <div className="app-list">
+                    {appointsData}
+                </div>
 
-             </div>
+                <h4 className="new">Create new appointments</h4>
+                <div className="new-appointments">
+                    <div className="slot-times">
+                        <select ref={aPatient} name="" id="">
+                            <option>Please select a patient</option>
+                            {
+                                patData.map(item => <option value={item.name}>{item.name}</option>)
+                            }
+                        </select>
+                        <select ref={aDoctor} name="" id="">
+                            <option>Please select a doctor</option>
+                            {
+                                docData.map(item => <option value={item.name}>{item.name}</option>)
+                            }
+                        </select>
+                        <input ref={aDate} type='date' placeholder='Choose a date '/>
 
-             <h4 className="new">Create new appointments</h4>
-             <div className="new-appointments">
-                 <div className="slot-times">
+                        <button onClick={addAppointment}>Add Appointment</button>
+                    </div>
+                </div>
 
-                 </div>
+                <div className='recep-info'>
+                    <div className="Receptionist">
+                        <img  src={"http://localhost/surgicalApi/" + recepImg} alt="" />
+                    </div>
 
-             </div>
+                    <div className="textside-image">
+                            <h14>Jennifer Turner</h14>
+                            <h22>Female</h22>
+                            <h22>0824170677</h22>
+                            <h22>vian@gmail.com</h22>
+                            <h22>rank</h22>
+                    </div>
+                </div>
 
-                  <img className="Receptionist" src={Profile}></img>
-                 <img className="textside-image" src={text}></img>
-                 <h4 className="events">New events</h4>
-                 <div className="new-events"></div>
-                  
-
-                  
-
-
-
-             
-            
-            
-             
-
-
-
-
-        
-
-
-         </div>
-
-    
-
-
-
-
-
-        
+                <h4 className="events">New events</h4>
+                <div className="new-events">
+                    {
+                        eventData.map(item => <h1>{item.message}</h1>)
+                    }
+                </div>
+            </div>
         </>
     )
 }

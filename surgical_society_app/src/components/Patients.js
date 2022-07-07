@@ -31,6 +31,8 @@ useEffect(() =>{
     .catch(err=>{
         console.log(err);
     })
+
+    console.log('asgasg')
 },[]);
 
 const editPatient = () => {
@@ -75,7 +77,7 @@ const deletePatient = () => {
         </div>
     
 );
-}
+
 
           <div className=" List-Patients">
               <div className="Detailed-view">

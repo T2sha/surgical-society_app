@@ -12,6 +12,9 @@ const EditAppointment = (props) => {
     let selectedPatient = useRef();
 
     useEffect(() => {
+
+        console.log('asgasg')
+
         axios.get('http://localhost:8888/surgicalApi/readDoctors.php')
         .then((res) => {
             let docData = res.data;

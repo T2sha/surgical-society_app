@@ -29,6 +29,7 @@ const EditReceptionist = (props) => {
         document.getElementById('updatePassword').value = props.password;
         document.getElementById('updatePasswordCon').value = props.password;
         
+        console.log('asgasg')
         },[]);
 
         const closeEditUser = () => {

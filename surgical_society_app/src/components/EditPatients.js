@@ -27,6 +27,8 @@ const EditPatients = (props) => {
         document.getElementById('cellNo').innerHTML = props.origionalCell;
         document.getElementById('email').innerHTML = props.origionalEmail;
         document.getElementById('medicalAidNo').innerHTML = props.origionalMedicalAidNo;
+
+        console.log('asgasg')
     },[]);
 
     const nameChange = (e) => {
