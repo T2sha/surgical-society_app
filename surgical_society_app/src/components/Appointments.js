@@ -142,6 +142,17 @@ const Appointments = (props)=>{
         })
     }
 
+    const deleteEvent = (e) => {
+        let id = e;
+
+        setRerender(true);
+
+        axios.post('http://localhost:8888/surgicalApi/deleteEvent.php', id)
+        .then((res) => {
+            console.log(res)
+        })
+    }
+
     return(
         <>
             <Navigation/> 
@@ -156,7 +167,7 @@ const Appointments = (props)=>{
                 </div>
 
 
-                <h4>Calendar</h4>
+                <h4>Events</h4>
                 <div className="calendar">
                     <textarea onChange={(e) => getEventMessage(e)} ref={eventMessage}></textarea>
                     <button onClick={addEvent}>Add event</button>
@@ -193,7 +204,7 @@ const Appointments = (props)=>{
                         </select>
                         <input ref={aDate} type='date' placeholder='Choose a date '/>
 
-                        <button onClick={addAppointment}>Add Appointment</button>
+                        <button className="add-appointments" onClick={addAppointment}>Add Appointment</button>
                     </div>
                 </div>
 
@@ -213,9 +224,18 @@ const Appointments = (props)=>{
 
                 <h4 className="events">New events</h4>
                 <div className="new-events">
-                    {
-                        eventData.map(item => <h1 key={item.id}>{item.message}</h1>)
-                    }
+
+                        {   eventData.length > 0
+                            ?
+                            eventData.map(item => 
+                                <div>    
+                                        <h12 className='eventMessage' key={item.id}>{item.message} </h12>
+                                        <img src={deleteIcon} onClick={() => deleteEvent(item.id)}/>
+                                </div>
+                            )
+                            : ''
+                        }
+                        
                 </div>
             </div>
         </>

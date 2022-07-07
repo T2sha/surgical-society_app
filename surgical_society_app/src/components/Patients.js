@@ -12,6 +12,71 @@ import brain from '../Images/Brain.svg';
 
 
 const Patients = (props) => {
+
+    const [ imageUrl, setImageUrl ] = useState('');
+    const changeImage = (e) => {
+        let file  = e.target.files[0];
+        let reader = new FileReader();
+
+        reader.onloadend = function() {
+            let imgFile = reader.result;
+
+            setImageUrl(imgFile);
+
+            let image = new Image();
+            image.src = reader.result;
+        }
+
+        reader.readAsDataURL(file)
+    }
+
+    let aImage = useRef();
+    let aName = useRef();
+    let aLast = useRef();
+    let aAge = useRef();
+    let aGender = useRef();
+    let aEmail = useRef();
+    let aNumber = useRef();
+    let aAid = useRef();
+    let aPrevious = useRef();
+    let aDate = useRef();
+
+    const addPatient = () => {
+        let image = aImage.current.value;
+        let name = aName.current.value;
+        let last = aLast.current.value;
+        let age = aAge.current.value;
+        let gender = aGender.current.value;
+        let email = aEmail.current.value;
+        let number = aNumber.current.value;
+        let aid = aAid.current.value;
+        let previous = aPrevious.current.value;
+        let date = aDate.current.value;
+
+        let details = {
+            img: imageUrl,
+            name: name,
+            last: last,
+            age: age,
+            gender: gender,
+            email: email,
+            number: number,
+            aid: aid,
+            previous: previous,
+            date: date
+        }
+         console.log(details); 
+
+         setRender(true);
+
+        axios.post('http://localhost:8888/surgicalApi/addDoctor.php', details)
+        .then((res) => {
+            console.log(res)
+        })
+    }
+    
+
+
     const navigate = useNavigate();
 
     const [ render, setRender ] = useState(false);
@@ -166,15 +231,30 @@ const Patients = (props) => {
 
                     <div className="new-patient-form">
 
-                    <input  type="text" placeholder='Patient Name'/>
-                    <input  type="text" placeholder='Patient Surname'/>
-                    <input  type="text" placeholder='gender'/>
-                    <input type="text" placeholder='Age'/>
-                    <input type="text" placeholder='Appointment Date '/>
-                    <input type="text" placeholder='Previous Doctor'/>
-                    <input  type="file" placeholder='Select your profile picture '/>
+                    <input ref={aName} type="text" placeholder='Patient Name'/>
+                    <input ref={aLast}type="text" placeholder='Patient Surname'/>
+                    <select ref={aGender}type="text" placeholder='gender'>
+                        <option value='male'>Male</option>
+                        <option value='female'>Female</option>
+                        <option value='other'>Other</option>
+                    </select>
+                    
+           
+                    <input ref={aAge}type="text" placeholder='Age'/>
+                    <input ref={aDate }type="date" placeholder='Appointment Date '/>
+                    <input ref={aPrevious }type="text" placeholder='Previous Doctor'/>
+                    <input onChange={changeImage} ref={aImage} type="file" placeholder='Select your profile picture '/>
+                    <input ref={aEmail} type="text" placeholder='Email'/>
+                    <input ref={aAid} type="text" placeholder='Medical Aid number'/>
+                    <input ref={aNumber} type="text" placeholder='Phone Number'/>
 
-                    <button type="submit">Add</button>
+    
+                    
+
+
+
+
+                    <button type="submit" onClick={addPatient}>Add</button>
 
                     </div>
 

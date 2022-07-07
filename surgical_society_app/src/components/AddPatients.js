@@ -1,39 +1,50 @@
-import React, { useState } from "react";
+/*import React, { useState } from "react";
 import axios from 'axios'
 import {useState , useEffect} from 'react';
 
 
 const AddPatient =(props)=>{
-    const [patient, setPatient]=useState({
-        name:"",
-        surname:"",
-        age:"",
-        gender:"",
-        email:"",
-        password:"",
-        phone_number:"",
-        medical_aid_number:"",
-        previous_appointments:"",
-    })
+    let pImage = useRef();
+    let pName = useRef();
+    let pLast = useRef();
+    let pAge = useRef();
+    let pGender = useRef();
+    let pEmail = useRef();
+    let pNumber = useRef();
+    let pAid = useRef();
+    let pPrevious = useRef();
+    let pDate = useRef();
 
-    const{name, age, gender, email, password, phone_umber, medical_aid_number, previous_appointments} = patient
-    const handleChange= (e) => {
-        setPatient({...patient,[e.target.name]: e.target.value})
+    const addPatient = () => {
+        let image = pImage.current.value;
+        let name = pName.current.value;
+        let last = pLast.current.value;
+        let age = pAge.current.value;
+        let gender = pGender.current.value;
+        let email = pEmail.current.value;
+        let number = pNumber.current.value;
+        let aid = pAid.current.value;
+        let previous = pPrevious.current.value;
+        let date = pDate.current.value;
+
+        let details = {
+            img: image,
+            name: name,
+            last: last,
+            age: age,
+            gender: gender,
+            email: email,
+            number: number,
+            aid: aid,
+            previous: previous,
+            date: date
+        }
+
+        axios.post('http://localhost:8888/surgicalApi/addPatient.php', details)
+        .then((res) => {
+            console.log(res)
+        })
     }
-    const submitForm= async (e) =>{
-        e.preventDefault();
-
-        await axios.post("http://localhost:8888/surgicalApi/insert.php'", patient)
-        .then((result)=>{
-            console.log()
-        if (result.dada.status == 'valid'){
-           
-        }
-        else{
-            alert('There is a problem in addig, please try again');
-        }
-     });
-
     }
     
     return(
@@ -51,6 +62,7 @@ const AddPatient =(props)=>{
             <input name= 'phone_number'type="text" placeholder='Name' />
             <input name= 'medical_aid_number'type="text" placeholder='Name' />
             <input name= 'previous_appointments' type="text" placeholder='Name' />
+            <button type="submit">Add</button>
         </form>
         </div>
 
@@ -61,4 +73,4 @@ const AddPatient =(props)=>{
     )
 }
 
-export default AddPatient
+export default AddPatient*/

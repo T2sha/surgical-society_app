@@ -41,6 +41,11 @@ const Login = () => {
                if(response.data !== false){
                     sessionStorage.setItem('activeUser', response.data[0].name);
                     sessionStorage.setItem('imgProfile', response.data[0].img);
+                    sessionStorage.setItem('gender', response.data[0].gender);
+                    sessionStorage.setItem('phone', response.data[0].phone);
+                    sessionStorage.setItem('email', response.data[0].email);
+                    sessionStorage.setItem('rank', response.data[0].rank);
+
                    navigate("/Appointments");
                }else{
                  console.log('Not working')
