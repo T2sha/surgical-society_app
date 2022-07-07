@@ -21,7 +21,7 @@ import deleteIcon from '../Icons/delete.svg';
 
 /* Calendar */
 // import {CalendarComponent} from '@syncfusion/ej2-react-calendars';
-import Calendar from '../components/MyCalendar'
+//import Calendar from '../components/MyCalendar'
 
 
 const Appointments = (props)=>{
