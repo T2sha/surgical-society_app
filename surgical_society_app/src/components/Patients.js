@@ -172,6 +172,8 @@ const Patients = (props) => {
                     <input type="text" placeholder='Age'/>
                     <input type="text" placeholder='Appointment Date '/>
                     <input type="text" placeholder='Previous Doctor'/>
+                    <input  type="file" placeholder='Select your profile picture '/>
+
                     <button type="submit">Add</button>
 
                     </div>

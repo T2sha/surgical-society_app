@@ -1079,5 +1079,20 @@ left:15px;
 }
 
 .new-patient-form{
-  top: 100px;
+  top: 300px;
 }
+
+.profile-text-patients{
+  margin-top: 50px;
+  margin-left: 182px;
+  color: black;
+}
+
+
+.profile-text-patients:hover {
+    color:  #F98770;
+    cursor: pointer;
+}
+
+
+
