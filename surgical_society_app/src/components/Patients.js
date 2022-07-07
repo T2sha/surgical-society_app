@@ -5,6 +5,8 @@ import { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import EditPatients from './EditPatients';
 
+
+
 const Patients = (props) =>{
 
 
@@ -62,6 +64,20 @@ const deletePatient = () => {
          <Navigation/> 
 
         {modal}
+
+        <div className=" List-Patients">
+              <div className="Detailed-view">
+
+              </div>
+         </div>
+
+          <div className="Add-New-Patients">
+              <div className="form-patients">
+
+              </div>
+
+          </div>
+          
         <div className="patientCard">
             <div className="editPatient" onClick={editPatient}></div>
             <div className="deletePatient" onClick={deletePatient}></div>
@@ -75,29 +91,11 @@ const deletePatient = () => {
             <p><strong>Age: </strong>{props.age}</p>
             <p><strong>Cell No: </strong>{props.cellNo}</p>
         </div>
+
+       
     
 );
 
-
-          <div className=" List-Patients">
-              <div className="Detailed-view">
-
-              </div>
-         </div>
-
-          <div className="Add-New-Patients">
-              <div className="form-patients">
-
-              </div>
-
-          </div>
-
-
-
-            
-       
-
-    
         
         </>
     )

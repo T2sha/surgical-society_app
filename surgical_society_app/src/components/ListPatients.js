@@ -17,11 +17,11 @@ const ListPatient=() =>{
         }
 
         let patientId = {id: props.uniqueId};
-        axios.post('http://localhost:8888/mediclinicApi/readPatientProfile.php', patientId)
+        axios.post('http://localhost:8888/surgicalApi/readPatientProfile.php', patientId)
         .then((res)=>{
             let data = res.data;
             let source = data[0].image;
-            let renderPath = 'http://localhost:8888/mediclinicApi/' + source;
+            let renderPath = 'http://localhost:8888/surgicalApi/' + source;
             setRenderPatientImage(renderPath);
             console.log(renderPath);
         })
@@ -39,7 +39,7 @@ const ListPatient=() =>{
             
             let patientId = {id: props.uniqueId};
 
-            axios.post('http://localhost:8888/mediclinicApi/deletePatient.php', patientId)
+            axios.post('http://localhost:8888/surgicalApi/deletePatient.php', patientId)
             .then((res) => {
                 let data = res.data;
                 console.log(res);

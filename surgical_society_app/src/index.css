@@ -842,6 +842,124 @@ top: 77px;
     border-radius: 50%;
 }
 
+.patientProfile{
+  margin: 0 auto;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background-position: center;
+  background-size: cover;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+
+}
+
+.patientProfile img{
+  width: 100%;
+  border-radius: 50%;
+}
+
+.patientCard p {
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+
+.addPatient #ageInput, #genderInput, #cellInput, #medicalAidNoInput, #nameInput{
+  width: 40%;
+  margin-bottom: 2%;
+}
+
+.addPatient #emailInput, #password{
+  width: 87.5%;
+  margin-bottom: 2%;
+}
+
+.addPatient #cellInput{
+  margin-right: 2%;
+}
+
+.addPatient .button{
+  width: 150px;
+}
+
+.patientImg{
+  margin: 0 auto;
+  margin-top: 4%;
+  width: 69%;
+  height: 230px;
+  background-size: cover;
+  background-position: center;
+}
+
+.editPatient, .editDoctor{
+  width: 30px;
+  height: 30px;
+  background-size: cover;
+  background-position: center;
+  float: left; 
+  margin-top: -0.5%;
+  cursor: pointer;
+}
+
+.deletePatient, .deleteDoctor{
+  width: 30px;
+  height: 30px;
+  background-size: cover;
+  background-position: center;
+  float: right; 
+  margin-top: -0.5%;
+  cursor: pointer;
+  margin-left: 1%;
+}
+
+.editPatientProfile{
+  padding: 2%;
+  width: 40%;
+ background-color: #F98770;
+  border-radius: 20px;
+  position: absolute;
+  margin-left: 6%;
+  margin-top: 8%;
+  box-shadow: 3px 5px 29px -4px rgba(0,0,0,0.75);
+  -webkit-box-shadow: 3px 5px 29px -4px rgba(0,0,0,0.75);
+  -moz-box-shadow: 3px 5px 29px -4px rgba(0,0,0,0.75);
+}
+
+.editPatientProfile .button{
+  width: 40%;
+}
+
+.editPatientProfile input{
+  background-color: white;
+}
+
+.editPatientProfile select{
+  background-color: white;
+}
+
+.editPatientProfile #name, #surname, #age, #gender, #cellNo, #email{
+  width: 42%;
+}
+
+.editPatientProfile #medicalAidNo{
+  width: 91%;
+  margin-bottom: 2%;
+}
+
+.editPatientProfile #age, #cellNo{
+  margin-right: 2%;
+  margin-bottom: 2%;
+}
+
+.editPatientProfile h2{
+  margin-top: 0;
+}
+
+.addPatient .imgArea{
+  height: 10vh;
+}
+
 
 
 

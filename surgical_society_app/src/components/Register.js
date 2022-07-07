@@ -267,12 +267,12 @@ const Register =() => {
         if(result){
             console.log('Not working');
         } else {
-            axios.post('http://localhost/surgicalApi/createUser.php', inputs)
+            axios.post('http://localhost:8888/surgicalApi/createUser.php', inputs)
             .then(function(response){
              console.log(response);
 
              if(response.status === 200){
-                navigate("/login");
+                navigate("/Login");
                  console.log("Working Fine");
              }
 
