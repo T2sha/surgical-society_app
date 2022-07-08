@@ -6,9 +6,11 @@ import axios from "axios";
 import EditPatients from './EditPatients';
 import Profile from '../Images/Profile.png';
 import eye from '../Icons/eye.svg';
+import click2 from '../Images/click2.svg'
 
 /* Images*/
 import brain from '../Images/Brain.svg';
+
 
 
 const Doctors = (props) => {
@@ -227,7 +229,8 @@ const Doctors = (props) => {
 
                         {patCards}
                         <div className="Detailed-view">
-                            {detailedView}
+                            {detailedView}<img className="click" src= {click2}></img>
+                            
                         </div>
                     </div>
 
@@ -235,6 +238,8 @@ const Doctors = (props) => {
                         <div className="new-patients">
                             <h2 className="Add">ADD NEW PATIENT</h2>
                         <img className ="brain" src = {brain}></img>
+                        
+                       
 
                     <div className="new-patient-form">
 
@@ -257,7 +262,7 @@ const Doctors = (props) => {
 
 
 
-                    <button type="submit" onClick={addPatient}>Add</button>
+                    <button className="add-appointments2" type="submit" onClick={addPatient}>Add</button>
 
                     </div>
 

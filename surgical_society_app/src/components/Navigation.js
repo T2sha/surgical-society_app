@@ -1,15 +1,16 @@
 import React from 'react';
 import {  UilHospital,  UilUser, UilUserMd} from '@iconscout/react-unicons'
-import logo from '../Icons/logo.svg'
+import logo from '../Icons/logo1.svg'
 import {BrowserRouter as Router, Routes,Route, Link } from 'react-router-dom';
 
 const Navigation = () => {
+
+  
 
     return(
         <>
         <div className="navBar">
             <img className="logo" src ={logo}></img>
-            <h1>SURGICAL SOCIETY</h1>
             </div>
             <div className="side">
             </div>

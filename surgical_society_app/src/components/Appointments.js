@@ -86,10 +86,10 @@ const Appointments = (props)=>{
             if(res.data.length > 1) {
                 let appointItem = res.data.map(item => 
                     <div className='appoint-table' key={item.id}>
-                        <p1>{item.name}</p1>
-                        <p1>{item.doctor}</p1>
-                        <p1>{item.date}</p1>
-                        <img onClick={() => deleteAppoint(item.id)} src={deleteIcon} alt="" />
+                        <p>{item.name}</p>
+                        <p >{item.doctor}</p>
+                        <p>{item.date}</p>
+                        <img className="appImgon" Click={() => deleteAppoint(item.id)} src={deleteIcon} alt="" />
                     </div>    
                 )
                 setAppointsData(appointItem);
@@ -162,15 +162,16 @@ const Appointments = (props)=>{
                 <h2>Appointments</h2>
                 <div className = "welcome">
                     <h3>Hi, {recepName}</h3>
-                    <p>"May your day be blessed !"</p>
+                    <p className="blessed">"May your day be blessed !"</p>
                     <img className="doctor" src={doctor}></img>
                 </div>
 
-
-                <h4>Events</h4>
+    
+                <h4>List of appointments</h4>
+        
                 <div className="calendar">
-                    <textarea onChange={(e) => getEventMessage(e)} ref={eventMessage}></textarea>
-                    <button onClick={addEvent}>Add event</button>
+                    <textarea className="text-area"  placeholder= "Type your daily reminders" onChange={(e) => getEventMessage(e)} ref={eventMessage}></textarea>
+                    <button className="add-event" onClick={addEvent}>Add event</button>
 
                 </div>
 
@@ -182,7 +183,7 @@ const Appointments = (props)=>{
                     </div>
                 </div>
 
-                <h4 className="list">List of appointments</h4>
+                <h4 className="list">Reminders</h4>
                 <div className="app-list">
                     {appointsData}
                 </div>
@@ -214,15 +215,15 @@ const Appointments = (props)=>{
                     </div>
 
                     <div className="textside-image">
-                            <h14>{recepName}</h14>
-                            <h22>{recepGender}</h22>
-                            <h22>{recepPhone}</h22>
-                            <h22>{recepEmail}</h22>
-                            <h22>{recepRank}</h22>
+                            <p className="ee1">{recepName}</p>
+                            <p className="ee">{recepGender}</p>
+                            <p className="ee">{recepPhone}</p>
+                            <p className="ee">{recepEmail}</p>
+                            <p className="ee">{recepRank}</p>
                     </div>
                 </div>
 
-                <h4 className="events">New events</h4>
+                <h4 className="events">Reminders</h4>
                 <div className="new-events">
 
                         {   eventData.length > 0
@@ -230,7 +231,7 @@ const Appointments = (props)=>{
                             eventData.map(item => 
                                 <div>    
                                         <h12 className='eventMessage' key={item.id}>{item.message} </h12>
-                                        <img src={deleteIcon} onClick={() => deleteEvent(item.id)}/>
+                                        <img className='eventImage' src={deleteIcon} onClick={() => deleteEvent(item.id)}/>
                                 </div>
                             )
                             : ''

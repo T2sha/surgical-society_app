@@ -32,10 +32,10 @@ text-decoration: none;
 /* Websites logo */
 .logo{
   position: absolute;
-  width: 47.34px;
-  height: 96.08px;
-  left: 64.84px;
-  top: 56.47px;
+  width: 90px;
+  height: 150px;
+  left: 60.84px;
+  top: 70.47px;
 }
 
 /* Title "SURGICAL SOCIETY */
@@ -43,21 +43,20 @@ text-decoration: none;
 /* Font style*/
 @import url('https://fonts.googleapis.com/css2?family=Vollkorn+SC:wght@400;600;700;900&display=swap');
 
-h1{
-position: absolute;
-width: 79px;
-height: 42px;
+/*.Title{
+width: 20px;
+height: 30px;
 left: 60px;
-top: 172px;
 font-family: 'Vollkorn SC', serif;
 font-style: normal;
 font-weight: 400;
-font-size: 15.35px;
+font-size: 12;
 line-height: 21px;
 text-align: center;
 text-transform: uppercase;
 color: #AAB0AB;
-}
+margin-bottom: 5px;
+}*/
 
 /* Icons*/
 
@@ -143,8 +142,8 @@ color: #818181;
 position: absolute;
 width: 392.06px;
 height: 100.41px;
-left: 50px;
-top: 120px;
+left: 55px;
+top: 150px;
 background: #F9F9F9;
 border-radius: 14.0708px;
 }
@@ -156,14 +155,13 @@ h3{
   /* Font style*/
   
 position: absolute;
-width: 194px;
-height: 20px;
-left: 20px;
-top: -10px;
+width: 300px;
+height: 220px;
+top: 5px;
 font-family: 'Inter', sans-serif;
 font-style: normal;
 font-weight: 600;
-font-size: 35.1771px;
+font-size: 25px;
 line-height: 19px;
 text-align: center;
 color: #F98770;
@@ -171,7 +169,7 @@ color: #F98770;
 }
 /* “May your day be blessed !” text*/
 
-p{
+ .blessed {
     position: absolute;
     width: 168px;
     height: 20px;
@@ -199,26 +197,57 @@ top: -70px;
  /* Calendar */
 h4{
 position: absolute;
-width: 66px;
+width: 200px;
 height: 20px;
 left: 50px;
-top: 225.84px;
+top: 275.84px;
 font-family: 'Inter', sans-serif;
 font-style: normal;
 font-weight: 400;
 font-size: 15.35px;
 line-height: 19px;
 text-align: center;
-color: #000000;
+color: #818181;
 }
 
 .calendar{
 position: absolute;
 width: 400px;
-height: 400px;
+height: 440px;
 left: 50px;
-top: 280.93px;
+left: 1010px;
+top: 440px;
 border-radius: 35.1771px;
+
+}
+
+/*Add event button*/
+.add-event{
+  background-color: #F98770;
+  border-radius: 13.751px;
+  width: 120px;
+  height: 27px;
+  margin-top: 180px;
+  margin-left: 20px;
+  border-style: none;
+
+}
+
+.text-area{
+ resize: none;
+ position: absolute;
+ width: 174px;
+ height: 100px;
+ left:-10px;
+ top: 50px;
+ background: #FFFFFF;
+ box-shadow: 1px 1px 20px rgb(0 0 0 / 10%);
+ border-radius: 10.2333px;
+ border-style: none;
+}
+
+::-text-area-placeholder{
+  color: aqua;
 }
 
 /* calendar 
@@ -297,21 +326,24 @@ color: white;
 .list {
 width: 149px;
 height: 20px;
-left: 510px;
+left: 480px;
 top: 110.47px;
 }
 
 /* List of appointments container */
+
 .app-list{
-    overflow: auto;
-    padding: 10px;
-position: absolute;
-width: 420.21px;
-height: 178.44px;
-left: 510px;
-top: 165px;
-background: #FFFFFF;
-border-radius: 25.5833px;
+  overflow: auto;
+  padding: 10px;
+  position: absolute;
+  width: 400px;
+  height: 350px;
+  background-color: #f2f2f2;
+  left: 40px;
+  top: 328px;
+  box-shadow: 1px 1px 20px rgb(0 0 0 / 10%);
+  border-radius: 25.5833px;
+
 }
 
 /* Create new appointments text */
@@ -341,8 +373,6 @@ box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.1);
   margin-top: 50px;
 
 }
-
-
 
 .slot-times input {
   width: 82%;
@@ -383,6 +413,44 @@ box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.1);
   border-style: none;
 }
 
+/* Reminders */
+.events{
+  width: 100px;
+    height: 20px;
+    left: 1010px;
+    top: 435px;
+  }
+
+.new-events{
+  position: absolute;
+  width: 420.21px;
+  height: 178.44px;
+  left: 510px;
+  top: 165px;
+  background: #FFFFFF;
+  box-shadow: 1px 1px 20px rgb(0 0 0 / 10%);
+  border-radius: 20.2333px;
+    
+    }
+  
+.eventMessage {
+  display: inline-block;
+  width: 100%;
+  font-size: medium;
+  padding: 20px;
+  font-style: revert;
+}
+
+.eventImage{
+      height: 20px;
+    width: 20px;
+    /* text-align: right; */
+    margin-left: 120px;
+    margin-top: -40px;
+    display: inline;
+    position: absolute;
+
+}
 
 /* Time slots */
 
@@ -461,25 +529,6 @@ color: #818181;
   
 }
 
-.events{
-width: 100px;
-height: 20px;
-left: 1010px;
-top: 400px;
-
-}
-
-.new-events{
-position: absolute;
-width: 174px;
-height: 250px;
-left: 1010px;
-top: 440px;
-background: #FFFFFF;
-box-shadow: 0px 2.55833px 6.39583px rgba(0, 0, 0, 0.1);
-border-radius: 10.2333px;
-
-}
 
 .log{
 position: relative;
@@ -562,6 +611,109 @@ border-style: none;
   padding: 0;
   margin-top: 0;
   text-align: center;
+}
+
+.appoint-table {
+  width: 98%;
+  margin: auto;
+  align-items: center;
+  height: 50px;
+  padding: 1px;
+  display: flex;
+  justify-content: space-evenly;
+  background-color: #Ffff;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  border-radius: 20.2333px;
+  margin-top:10px;
+}
+
+.title-list{
+  margin-left: 20px;
+  display: flex;
+  align-items: center;
+  top:200px;
+  top: 172px;
+  left: 300px;
+}
+
+.title-list2{
+  margin-left: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.title-list3{
+  margin-left: 20px;
+  display: flex;
+  align-items: center;
+}
+
+p{
+
+  width: 168px;
+  height: 20px;
+  left: 40px;
+  top: 50px;
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 12.7917px;
+  line-height: 19px;
+  text-align: center;
+   color: #818181;
+   display: block;
+   margin-block-start: 1em;
+   margin-block-end: 1em;
+   margin-inline-start: 0px;
+   margin-inline-end: 0px;
+
+
+}
+
+.ee1{
+  width: 400px;
+  margin-bottom: 10px;
+  height: 42px;
+  top: 172px;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 20px;
+  line-height: 10px;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: 'Vollkorn SC', serif;
+  margin-left: -110px;
+  margin-bottom: -15px;
+  margin-top: 30px;
+    
+}
+
+.ee{
+  width: 400px;
+  margin-bottom: 10px;
+  /* height: 42px; */
+  /* left: 50px; */
+  top: 162px;
+  /* font-style: normal; */
+  font-weight: 400;
+  font-size: 8px;
+  line-height: px;
+  text-align: center;
+  text-transform: uppercase;
+  /* color: #AAB0AB; */
+  margin-left: -110px;
+  margin-bottom: -11px;
+  
+}
+
+.appoint-table img {
+  width: 24px;
+  color: #818181;
+}
+
+.appoint-table img:hover {
+  cursor: pointer;
 }
 
 .edit{
@@ -857,23 +1009,6 @@ top: 77px;
 }
 
 
-.appoint-table {
-    width: 80%;
-    margin: auto;
-    align-items: center;
-    height: fit-content;
-    padding: 2px;
-    display: flex;
-    justify-content: space-evenly;
-    background-color: #F7F7F7;
-    border-radius: 20px;
-    margin-bottom: 5px;
-}
-
-.appoint-table img {
-    width: 24px;
-}
-
 .appoint-table img:hover {
     cursor: pointer;
 }
@@ -1147,10 +1282,68 @@ left:15px;
     cursor: pointer;
 }
 
-
-.eventMessage {
-  display: inline-block;
-  width: 100%;
+.new-patient-form input{
+  width: 72%;
+  padding: 10px;
+  background-color: #F1F2F2;
+  border-radius: 12px;
+  box-shadow: 1px 1px 3px rgb(0 0 0 / 10%);
+  outline: none;
+  justify-content: space-around;
+  border: none;
+  float: left;
+  margin-bottom: 20px;
+  margin-left: 25px;
+  outline: none;
+  border: none;
 }
+
+.new-patient-form select{
+  width: 80% ;
+  padding: 10px;
+  margin-left: 0;
+  border-radius: 12px;
+  border-style: none;
+  background-color: #F2F2F2;
+  margin-bottom: 15px;
+  box-shadow: 1px 1px 3px rgb(0 0 0 / 10%);
+  margin-left: 20px;
+}
+
+.new-patient-form{
+  margin-top: 50px;
+}
+
+.List-Patients.scroll {
+  overflow-x: hidden;
+  overflow-y: auto;
+  text-align: center;
+}
+
+.add-appointments2{
+  background-color: #F98770;
+  border-radius: 13.751px;
+  width: 170px;
+  height: 27px;
+  margin-top: -20px;
+  margin-left: 41px;
+
+  border-style: none;
+
+}
+
+.click{
+  margin-top: 150px;
+  height: 40%;
+  margin-left:26px;
+}
+
+.doctor-picture{
+  margin-left: 200px;
+}
+
+
+
+
 
 

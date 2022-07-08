@@ -6,6 +6,9 @@ import axios from "axios";
 import EditPatients from './EditPatients';
 import Profile from '../Images/Profile.png';
 import eye from '../Icons/eye.svg';
+import click from '../Images/click.svg'
+//import doctorP from '../Images/'
+
 
 /* Images*/
 import brain from '../Images/Brain.svg';
@@ -25,6 +28,7 @@ const Patients = (props) => {
 
             let image = new Image();
             image.src = reader.result;
+            document.getElementById('profileImg').appendChild(image);
         }
 
         reader.readAsDataURL(file)
@@ -69,7 +73,7 @@ const Patients = (props) => {
 
          setRender(true);
 
-        axios.post('http://localhost:8888/surgicalApi/addDoctor.php', details)
+        axios.post('http://localhost:8888/surgicalApi/addPatient.php', details)
         .then((res) => {
             console.log(res)
         })
@@ -220,7 +224,7 @@ const Patients = (props) => {
 
                         {patCards}
                         <div className="Detailed-view">
-                            {detailedView}
+                            {detailedView}<img className="click" src= {click}></img>
                         </div>
                     </div>
 
@@ -228,6 +232,7 @@ const Patients = (props) => {
                         <div className="new-patients">
                             <h2 className="Add">ADD NEW PATIENT</h2>
                         <img className ="brain" src = {brain}></img>
+                        
 
                     <div className="new-patient-form">
 
@@ -248,13 +253,7 @@ const Patients = (props) => {
                     <input ref={aAid} type="text" placeholder='Medical Aid number'/>
                     <input ref={aNumber} type="text" placeholder='Phone Number'/>
 
-    
-                    
-
-
-
-
-                    <button type="submit" onClick={addPatient}>Add</button>
+                    <button className="add-appointments2"type="submit" onClick={addPatient}>Add</button>
 
                     </div>
 
