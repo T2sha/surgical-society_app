@@ -46,7 +46,7 @@ const Login = () => {
                     sessionStorage.setItem('email', response.data[0].email);
                     sessionStorage.setItem('rank', response.data[0].rank);
 
-                   navigate("/Appointments");
+                   navigate("/appointments");
                }else{
                  console.log('Not working')
                }

@@ -1230,12 +1230,30 @@ top: 77px;
 .Detailed-view button {
     margin: auto;
     text-align: center;
+    background-color: #F98770;
+    border-radius: 13.751px;
+    width: 170px;
+    height: 27px;
+    margin-top: 40px;
+    margin-left: 41px;
+    border-style: none;
 }
 
 .update input {
+    width: 88%;
+    padding: 10px;
+    background-color: #F1F2F2;
+    border-radius: 12px;
+    box-shadow: 1px 1px 3px rgb(0 0 0 / 10%);
+    outline: none;
+    justify-content: space-around;
     border: none;
-    background-color: #F98770;
-    width: 100%;
+    float: left;
+   margin-bottom: -20px;
+    margin-left: 25px;
+    outline: none;
+    margin-top: 40px;
+    border: none;
 }
 
 .new-patients{
@@ -1340,7 +1358,30 @@ left:15px;
 
 .doctor-picture{
   margin-left: 200px;
+
 }
+
+.delete{
+  background-color: #F98770;
+  border-radius: 13.751px;
+  width: 170px;
+  height: 27px;
+  margin-top: -20px;
+  margin-left: 41px;
+  border-style: none;
+}
+
+.delete{
+  background-color: #F98770;
+  border-radius: 13.751px;
+  width: 170px;
+  height: 27px;
+  margin-top: -20px;
+  margin-left: 41px;
+  border-style: none;
+}
+
+
 
 
 

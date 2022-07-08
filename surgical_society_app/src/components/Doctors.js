@@ -175,7 +175,7 @@ const Doctors = (props) => {
 
                     {
                         rank == 'Head Receptionist'
-                        ? <button onClick={() => deletePat(item.id)}>Delete</button>
+                        ? <button className ="delete2" onClick={() => deletePat(item.id)}>Delete</button>
                         : ''
                     }
 
@@ -254,7 +254,12 @@ const Doctors = (props) => {
                     <input onChange={changeImage} ref={aImage} type="file" placeholder='Select your profile picture '/>
                     <input ref={aEmail} type="text" placeholder='Email'/>
                     <input ref={aNumber} type="text" placeholder='Phone Number'/>
-                    <input ref={aSpecial} type="text" placeholder='Previous Doctor'/>
+                    <select ref={aSpecial}type="text" placeholder='Spesalisation'>
+                        <option value='plastic surgeon'>Plastic surgeon</option>
+                        <option value='Cosmetic and oral surgeon'>Tosmetic and oral surgeon</option>
+                        <option value='transplant surgeon'>Transplant surgeon</option>
+                        <option value='Neurosurgeon'>Neurosurgeon</option>
+                    </select>
 
     
                     

@@ -158,7 +158,7 @@ const Appointments = (props)=>{
             <Navigation/> 
 
             <div className = "app-container">
-                <img className ="drip" src = {drip}></img>
+                /*<img className ="drip" src = {drip}></img>*
                 <h2>Appointments</h2>
                 <div className = "welcome">
                     <h3>Hi, {recepName}</h3>

@@ -173,7 +173,7 @@ const Patients = (props) => {
                         </div>
                     </div>
 
-                    <button onClick={() => deletePat(item.id)}>Delete</button>
+                    <button className ="delete" onClick={() => deletePat(item.id)}>Delete</button>
 
 
                     <div className='update' key={item.id}>
