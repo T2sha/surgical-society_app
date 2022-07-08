@@ -786,8 +786,8 @@ top: 77px;
 /* slogan*/
 .slogan{
   width: 350px;
-  top: 280px;
-  left: 160px;
+  margin-top: -500px;
+  margin-left: 190px;
   font-size: medium;
   font-weight: 300;
   color: rgb(187, 184, 184);
@@ -802,7 +802,7 @@ top: 77px;
  background: #F2F2F2;
  box-shadow: 4px 4px 40px rgba(0, 0, 0, 0.1);
  margin-left: 230px;
- margin-top: 140px;
+ margin-top: -220px;
  margin-bottom: 30px;
 }
 
@@ -855,8 +855,8 @@ top: 77px;
 
 /* profile picture text */
 .profile-text{
-  margin-top: 248px;
-  margin-left: 182px;
+  margin-top: 220px;
+  margin-left: 217px;
   color: black;
 }
 
@@ -903,18 +903,18 @@ top: 77px;
 
 /* Text:Already have an account?*/
 .Rsub-text{
-  margin-top: 23px;
-  margin-left: 185px;
+  margin-top: 30px;
+  margin-left: 190px;
   color: grey;
 }
 
 .login-link{
   position: absolute;
   color:white;
-  margin-top: 42px;
   margin-left: 185px;
   font-size: medium;
   font-weight: 600;
+  margin-top: 200px;
   text-shadow: grey 1px 1px 5px;
   
 }
