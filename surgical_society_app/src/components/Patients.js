@@ -122,6 +122,7 @@ const Patients = (props) => {
     }
 
     const [ detailedView, setDetailedView ] = useState([]);
+    const [showDetail, setShowDetail] = useState(false)
     const showPatDetails = (e) => {
         let id = e;
 
@@ -188,6 +189,7 @@ const Patients = (props) => {
                 </div>
             )
             setDetailedView(patientCard);
+            setShowDetail(true)
             console.log(res);
         })
     }
@@ -224,7 +226,15 @@ const Patients = (props) => {
 
                         {patCards}
                         <div className="Detailed-view">
-                            {detailedView}<img className="click" src= {click}></img>
+                        {detailedView}
+
+                        {showDetail ? (
+                            <></>
+                        ) : (
+                        <img className="click" src= {click}></img>
+                            
+                        )}
+
                         </div>
                     </div>
 

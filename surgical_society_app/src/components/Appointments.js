@@ -28,6 +28,7 @@ const Appointments = (props)=>{
 
     const [ rerender, setRerender ] = useState(false);
     const deleteAppoint = (e) => {
+        console.log("delete", e)
         axios.post('http://localhost:8888/surgicalApi/deleteAppointments.php', {id: e})
         .then((res) => {
             setRerender(true);
@@ -89,7 +90,8 @@ const Appointments = (props)=>{
                         <p>{item.name}</p>
                         <p >{item.doctor}</p>
                         <p>{item.date}</p>
-                        <img className="appImgon" Click={() => deleteAppoint(item.id)} src={deleteIcon} alt="" />
+                        <img className="appImgon" onClick={() => deleteAppoint(item.id)} src={deleteIcon} alt="" />
+                        
                     </div>    
                 )
                 setAppointsData(appointItem);
